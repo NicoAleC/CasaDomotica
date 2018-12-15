@@ -1,0 +1,15 @@
+V3 7
+FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd 2018/12/14.16:18:30 P.20131013
+EN work/controlador 1544818716 \
+      FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/controlador/casa_domotica 1544818717 \
+      FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd \
+      EN work/controlador 1544818716 CP eliminador
+FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd 2018/12/10.08:35:14 P.20131013
+EN work/eliminador 1544818714 \
+      FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/eliminador/Eliminador_de_ruido 1544818715 \
+      FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd \
+      EN work/eliminador 1544818714

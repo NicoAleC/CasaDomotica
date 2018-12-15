@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\chinc\Documents\upb\ElectronicaDigital\Xilinx\Casa_Domotica\controlador.ncd
+OUTFILE=C:\Users\chinc\Documents\upb\ElectronicaDigital\Xilinx\Casa_Domotica\controlador.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=C:\Users\chinc\Documents\upb\ElectronicaDigital\Xilinx\Casa_Domotica
+LICENSE=WebPack
+USER_INFO=210968872_0_0_477

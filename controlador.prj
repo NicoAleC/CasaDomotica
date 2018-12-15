@@ -1,0 +1,2 @@
+vhdl work "../Eliminador_de_ruido/eliminador.vhd"
+vhdl work "controlador.vhd"
