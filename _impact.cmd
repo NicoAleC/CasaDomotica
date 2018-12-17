@@ -6,6 +6,8 @@ setCable -port auto
 Identify -inferir 
 identifyMPM 
 assignFile -p 1 -file "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.bit"
+BlankCheck -p 2 
+BlankCheck -p 3 
 Program -p 1 
 setMode -bs
 setMode -bs

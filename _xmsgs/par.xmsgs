@@ -11,8 +11,8 @@
 <msg type="warning" file="Place" num="414" delta="old" >The input design contains local clock signal(s). To get a better result, we recommend users run map with the &quot;-timing&quot; option set before starting the placement.
 </msg>
 
-<msg type="warning" file="Route" num="455" delta="old" >CLK Net:<arg fmt="%s" index="1">u1/edo_presente&lt;0&gt;</arg> may have excessive skew because 
-   <arg fmt="%d" index="2">11</arg> CLK pins and <arg fmt="%d" index="3">0</arg> NON_CLK pins failed to route using a CLK template.
+<msg type="warning" file="Route" num="455" delta="new" >CLK Net:<arg fmt="%s" index="1">u1/edo_presente&lt;0&gt;</arg> may have excessive skew because 
+   <arg fmt="%d" index="2">6</arg> CLK pins and <arg fmt="%d" index="3">0</arg> NON_CLK pins failed to route using a CLK template.
 </msg>
 
 <msg type="warning" file="ParHelpers" num="361" delta="old" >There are <arg fmt="%d" index="1">1</arg> loadless signals in this design. This design will cause Bitgen to issue DRC warnings.

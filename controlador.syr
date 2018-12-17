@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: controlador.prj
 
@@ -174,31 +174,20 @@ WARNING:Xst:646 - Signal <hora> is assigned but never used. This unconnected sig
     Found 17-bit comparator less for signal <cuenta$cmp_lt0000> created at line 74.
     Found 17-bit comparator less for signal <E$cmp_lt0000> created at line 79.
     Found 4-bit register for signal <hrsd>.
-    Found 4-bit adder for signal <hrsd$addsub0000> created at line 123.
+    Found 4-bit adder for signal <hrsd$addsub0000> created at line 120.
     Found 4-bit register for signal <hrsu>.
-    Found 4-bit adder for signal <hrsu$share0000> created at line 118.
+    Found 4-bit adder for signal <hrsu$addsub0000> created at line 116.
     Found 4-bit register for signal <mind>.
-    Found 4-bit adder for signal <mind$addsub0000> created at line 113.
-    Found 4-bit comparator greatequal for signal <mind$cmp_ge0000> created at line 123.
-    Found 4-bit comparator greatequal for signal <mind$cmp_ge0001> created at line 118.
-    Found 4-bit comparator greatequal for signal <mind$cmp_ge0002> created at line 114.
-    Found 4-bit comparator greatequal for signal <mind$cmp_ge0003> created at line 111.
-    Found 4-bit comparator greatequal for signal <mind$cmp_ge0004> created at line 111.
-    Found 4-bit comparator less for signal <mind$cmp_lt0000> created at line 110.
-    Found 4-bit comparator less for signal <mind$cmp_lt0001> created at line 110.
-    Found 4-bit comparator less for signal <mind$cmp_lt0002> created at line 110.
-    Found 4-bit comparator less for signal <mind$cmp_lt0003> created at line 128.
-    Found 4-bit comparator less for signal <mind$cmp_lt0004> created at line 118.
+    Found 4-bit adder for signal <mind$addsub0000> created at line 112.
     Found 4-bit register for signal <minu>.
-    Found 4-bit adder for signal <minu$addsub0000> created at line 111.
+    Found 4-bit adder for signal <minu$add0000> created at line 110.
     Summary:
 	inferred   1 Finite State Machine(s).
 	inferred  34 D-type flip-flop(s).
 	inferred   5 Adder/Subtractor(s).
-	inferred  12 Comparator(s).
+	inferred   2 Comparator(s).
 Unit <controlador> synthesized.
 
-INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 WARNING:Xst:524 - All outputs of the instance <u2> of the block <eliminador> are unconnected in block <controlador>.
    This instance will be removed from the design along with all underlying logic
 
@@ -213,10 +202,8 @@ Macro Statistics
  1-bit register                                        : 2
  17-bit register                                       : 1
  4-bit register                                        : 4
-# Comparators                                          : 12
+# Comparators                                          : 2
  17-bit comparator less                                : 2
- 4-bit comparator greatequal                           : 5
- 4-bit comparator less                                 : 5
 
 =========================================================================
 
@@ -293,10 +280,8 @@ Macro Statistics
  4-bit adder                                           : 4
 # Registers                                            : 35
  Flip-Flops                                            : 35
-# Comparators                                          : 12
+# Comparators                                          : 2
  17-bit comparator less                                : 2
- 4-bit comparator greatequal                           : 5
- 4-bit comparator less                                 : 5
 
 =========================================================================
 
@@ -305,12 +290,22 @@ Macro Statistics
 =========================================================================
 
 Optimizing unit <controlador> ...
-WARNING:Xst:1293 - FF/Latch <mind_3> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <mind_3> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <hrsd_2> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <hrsd_0> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsd_1> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsd_2> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsd_3> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <hrsd_2> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsu_0> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsu_1> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsu_2> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsu_3> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <hrsd_0> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsd_1> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsd_2> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsd_3> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsu_0> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsu_1> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsu_2> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsu_3> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -322,8 +317,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 84
- Flip-Flops                                            : 84
+# Registers                                            : 79
+ Flip-Flops                                            : 79
 
 =========================================================================
 
@@ -352,22 +347,21 @@ Design Statistics
 # IOs                              : 22
 
 Cell Usage :
-# BELS                             : 183
+# BELS                             : 156
 #      GND                         : 1
 #      INV                         : 4
 #      LUT1                        : 18
 #      LUT2                        : 28
-#      LUT3                        : 10
-#      LUT3_D                      : 4
-#      LUT4                        : 42
-#      MUXCY                       : 56
-#      MUXF5                       : 2
+#      LUT3                        : 7
+#      LUT4                        : 31
+#      MUXCY                       : 48
+#      MUXF5                       : 1
 #      VCC                         : 1
 #      XORCY                       : 17
-# FlipFlops/Latches                : 84
+# FlipFlops/Latches                : 79
 #      FD                          : 17
 #      FDC                         : 1
-#      FDCE_1                      : 13
+#      FDC_1                       : 8
 #      FDR                         : 51
 #      FDRS                        : 1
 #      FDS                         : 1
@@ -384,9 +378,9 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                       86  out of   4656     1%  
- Number of Slice Flip Flops:             83  out of   9312     0%  
- Number of 4 input LUTs:                106  out of   9312     1%  
+ Number of Slices:                       74  out of   4656     1%  
+ Number of Slice Flip Flops:             78  out of   9312     0%  
+ Number of 4 input LUTs:                 88  out of   9312     0%  
  Number of IOs:                          22
  Number of bonded IOBs:                  11  out of    232     4%  
     IOB Flip Flops:                       1
@@ -414,7 +408,7 @@ Clock Information:
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
 clk                                | BUFGP                  | 19    |
-u1/edo_presente_0                  | NONE(minu_0)           | 13    |
+u1/edo_presente_0                  | NONE(mind_0)           | 8     |
 E_OBUF1                            | BUFG                   | 52    |
 -----------------------------------+------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -424,7 +418,7 @@ Asynchronous Control Signals Information:
 -----------------------------------+------------------------+-------+
 Control Signal                     | Buffer(FF name)        | Load  |
 -----------------------------------+------------------------+-------+
-reset                              | IBUF                   | 14    |
+reset                              | IBUF                   | 9     |
 -----------------------------------+------------------------+-------+
 
 Timing Summary:
@@ -432,8 +426,8 @@ Timing Summary:
 Speed Grade: -4
 
    Minimum period: 9.521ns (Maximum Frequency: 105.031MHz)
-   Minimum input arrival time before clock: 3.402ns
-   Maximum output required time after clock: 7.245ns
+   Minimum input arrival time before clock: 3.400ns
+   Maximum output required time after clock: 7.369ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -467,7 +461,7 @@ Delay:               9.521ns (Levels of Logic = 17)
      MUXCY:CI->O           1   0.059   0.000  Madd_cuenta_addsub0000_cy<8> (Madd_cuenta_addsub0000_cy<8>)
      MUXCY:CI->O           1   0.059   0.000  Madd_cuenta_addsub0000_cy<9> (Madd_cuenta_addsub0000_cy<9>)
      XORCY:CI->O           2   0.804   0.622  Madd_cuenta_addsub0000_xor<10> (cuenta_addsub0000<10>)
-     LUT2:I0->O            1   0.704   0.424  Mcompar_E_cmp_lt0000_lut<5>_SW0 (N18)
+     LUT2:I0->O            1   0.704   0.424  Mcompar_E_cmp_lt0000_lut<5>_SW0 (N3)
      LUT4:I3->O            1   0.704   0.000  Mcompar_E_cmp_lt0000_lut<5> (Mcompar_E_cmp_lt0000_lut<5>)
      MUXCY:S->O            1   0.464   0.000  Mcompar_E_cmp_lt0000_cy<5> (Mcompar_E_cmp_lt0000_cy<5>)
      MUXCY:CI->O           1   0.059   0.000  Mcompar_E_cmp_lt0000_cy<6> (Mcompar_E_cmp_lt0000_cy<6>)
@@ -480,28 +474,27 @@ Delay:               9.521ns (Levels of Logic = 17)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'u1/edo_presente_0'
-  Clock period: 5.899ns (frequency: 169.520MHz)
-  Total number of paths / destination ports: 236 / 26
+  Clock period: 4.723ns (frequency: 211.730MHz)
+  Total number of paths / destination ports: 39 / 8
 -------------------------------------------------------------------------
-Delay:               5.899ns (Levels of Logic = 4)
-  Source:            mind_1 (FF)
-  Destination:       hrsu_0 (FF)
+Delay:               4.723ns (Levels of Logic = 3)
+  Source:            mind_0 (FF)
+  Destination:       mind_2 (FF)
   Source Clock:      u1/edo_presente_0 falling
   Destination Clock: u1/edo_presente_0 falling
 
-  Data Path: mind_1 to hrsu_0
+  Data Path: mind_0 to mind_2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE_1:C->Q           6   0.591   0.748  mind_1 (mind_1)
-     LUT3_D:I1->O         10   0.704   1.057  mind_cmp_lt00001 (mind_cmp_lt0000)
-     LUT3:I0->O            1   0.704   0.000  hrsu_mux0000<0>1_F (N28)
-     MUXF5:I0->O           4   0.321   0.762  hrsu_mux0000<0>1 (N0)
-     LUT4:I0->O            1   0.704   0.000  hrsu_mux0000<0> (hrsu_mux0000<0>)
-     FDCE_1:D                  0.308          hrsu_3
+     FDC_1:C->Q            4   0.591   0.762  mind_0 (mind_0)
+     LUT3:I0->O            1   0.704   0.424  mind_mux0001<2>3_SW0 (N0)
+     LUT4:I3->O            2   0.704   0.526  mind_mux0001<2>3 (mind_mux0001<2>_bdd0)
+     LUT2:I1->O            1   0.704   0.000  mind_mux0001<2>21 (mind_mux0001<2>)
+     FDC_1:D                   0.308          mind_2
     ----------------------------------------
-    Total                      5.899ns (3.332ns logic, 2.567ns route)
-                                       (56.5% logic, 43.5% route)
+    Total                      4.723ns (3.011ns logic, 1.712ns route)
+                                       (63.8% logic, 36.2% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'E_OBUF1'
@@ -547,7 +540,7 @@ Offset:              1.946ns (Levels of Logic = 1)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'E_OBUF1'
   Total number of paths / destination ports: 52 / 52
 -------------------------------------------------------------------------
-Offset:              3.402ns (Levels of Logic = 1)
+Offset:              3.400ns (Levels of Logic = 1)
   Source:            reset (PAD)
   Destination:       pr_estado_FSM_FFd52 (FF)
   Destination Clock: E_OBUF1 rising
@@ -556,10 +549,10 @@ Offset:              3.402ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            66   1.218   1.273  reset_IBUF (reset_IBUF)
+     IBUF:I->O            61   1.218   1.271  reset_IBUF (reset_IBUF)
      FDS:S                     0.911          pr_estado_FSM_FFd52
     ----------------------------------------
-    Total                      3.402ns (2.129ns logic, 1.273ns route)
+    Total                      3.400ns (2.129ns logic, 1.271ns route)
                                        (62.6% logic, 37.4% route)
 
 =========================================================================
@@ -583,63 +576,59 @@ Offset:              4.310ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'E_OBUF1'
-  Total number of paths / destination ports: 95 / 5
+  Total number of paths / destination ports: 92 / 5
 -------------------------------------------------------------------------
-Offset:              6.992ns (Levels of Logic = 3)
-  Source:            pr_estado_FSM_FFd45 (FF)
-  Destination:       RS (PAD)
+Offset:              7.369ns (Levels of Logic = 4)
+  Source:            pr_estado_FSM_FFd51 (FF)
+  Destination:       DB<3> (PAD)
   Source Clock:      E_OBUF1 rising
 
-  Data Path: pr_estado_FSM_FFd45 to RS
+  Data Path: pr_estado_FSM_FFd51 to DB<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              3   0.591   0.706  pr_estado_FSM_FFd45 (pr_estado_FSM_FFd45)
-     LUT4:I0->O            1   0.704   0.595  pr_estado_FSM_Out5212 (pr_estado_FSM_Out5212)
-     LUT4:I0->O            1   0.704   0.420  pr_estado_FSM_Out5276 (RS_OBUF)
-     OBUF:I->O                 3.272          RS_OBUF (RS)
+     FDR:C->Q              4   0.591   0.762  pr_estado_FSM_FFd51 (pr_estado_FSM_FFd51)
+     LUT4:I0->O            1   0.704   0.000  DB<3>111 (DB<3>111)
+     MUXF5:I1->O           1   0.321   0.595  DB<3>11_f5 (DB<3>11)
+     LUT4:I0->O            1   0.704   0.420  DB<3>39 (DB_3_OBUF)
+     OBUF:I->O                 3.272          DB_3_OBUF (DB<3>)
     ----------------------------------------
-    Total                      6.992ns (5.271ns logic, 1.721ns route)
-                                       (75.4% logic, 24.6% route)
+    Total                      7.369ns (5.592ns logic, 1.777ns route)
+                                       (75.9% logic, 24.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'u1/edo_presente_0'
-  Total number of paths / destination ports: 13 / 4
+  Total number of paths / destination ports: 8 / 4
 -------------------------------------------------------------------------
-Offset:              7.245ns (Levels of Logic = 9)
-  Source:            hrsd_1 (FF)
-  Destination:       DB<1> (PAD)
+Offset:              7.058ns (Levels of Logic = 4)
+  Source:            mind_3 (FF)
+  Destination:       DB<3> (PAD)
   Source Clock:      u1/edo_presente_0 falling
 
-  Data Path: hrsd_1 to DB<1>
+  Data Path: mind_3 to DB<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE_1:C->Q          12   0.591   1.040  hrsd_1 (hrsd_1)
-     LUT2:I1->O            1   0.704   0.000  DB<1>_wg_lut<0> (DB<1>_wg_lut<0>)
-     MUXCY:S->O            1   0.464   0.000  DB<1>_wg_cy<0> (DB<1>_wg_cy<0>)
-     MUXCY:CI->O           1   0.059   0.000  DB<1>_wg_cy<1> (DB<1>_wg_cy<1>)
-     MUXCY:CI->O           1   0.059   0.000  DB<1>_wg_cy<2> (DB<1>_wg_cy<2>)
-     MUXCY:CI->O           1   0.059   0.000  DB<1>_wg_cy<3> (DB<1>_wg_cy<3>)
-     MUXCY:CI->O           1   0.059   0.000  DB<1>_wg_cy<4> (DB<1>_wg_cy<4>)
-     MUXCY:CI->O           1   0.059   0.000  DB<1>_wg_cy<5> (DB<1>_wg_cy<5>)
-     MUXCY:CI->O           1   0.459   0.420  DB<1>_wg_cy<6> (DB_1_OBUF)
-     OBUF:I->O                 3.272          DB_1_OBUF (DB<1>)
+     FDC_1:C->Q            2   0.591   0.451  mind_3 (mind_3)
+     LUT4:I3->O            1   0.704   0.000  DB<3>111 (DB<3>111)
+     MUXF5:I1->O           1   0.321   0.595  DB<3>11_f5 (DB<3>11)
+     LUT4:I0->O            1   0.704   0.420  DB<3>39 (DB_3_OBUF)
+     OBUF:I->O                 3.272          DB_3_OBUF (DB<3>)
     ----------------------------------------
-    Total                      7.245ns (5.785ns logic, 1.460ns route)
-                                       (79.8% logic, 20.2% route)
+    Total                      7.058ns (5.592ns logic, 1.466ns route)
+                                       (79.2% logic, 20.8% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.30 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.01 secs
  
 --> 
 
-Total memory usage is 4550560 kilobytes
+Total memory usage is 4550536 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   16 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :   26 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 

@@ -1,6 +1,6 @@
 iMPACT Version: 14.7
 
-iMPACT log file Started on Fri Dec 14 16:21:26 2018
+iMPACT log file Started on Mon Dec 17 11:25:23 2018
 
 Welcome to iMPACT
 iMPACT Version: 14.7
@@ -26,9 +26,11 @@ Type = 0x0004.
  Cable Type = 3, Revision = 0.
  Setting cable speed to 6 MHz.
 Cable connection established.
-Firmware version = 1303.
+Firmware version = 1029.
 File version of C:/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex = 1303.
 Firmware hex file version = 1303.
+Downloading C:/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex.
+Downloaded firmware version = 1303.
 PLD file version = 0012h.
  PLD version = 0012h.
 PROGRESS_END - End Operation.
@@ -36,7 +38,7 @@ Elapsed time =      1 sec.
 Type = 0x0004.
  ESN device is not available for this cable.
 Attempting to identify devices in the boundary-scan chain configuration...
-INFO:iMPACT - Current time: 14/12/2018 4:21:29 p. m.
+INFO:iMPACT - Current time: 17/12/2018 11:25:33 a. m.
 // *** BATCH CMD : Identify -inferir 
 PROGRESS_START - Starting Operation.
 Identifying chain contents...'0': : Manufacturer's ID = Xilinx xc2c64a, Version : 0
@@ -56,7 +58,7 @@ INFO:iMPACT:501 - '1': Added Device xc3s500e successfully.
 ----------------------------------------------------------------------
 done.
 PROGRESS_END - End Operation.
-Elapsed time =      0 sec.
+Elapsed time =      1 sec.
 // *** BATCH CMD : identifyMPM 
 // *** BATCH CMD : assignFile -p 1 -file"C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.bit"
 '1': Loading file'C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.bit' ...
@@ -67,7 +69,30 @@ UserID read from the bitstream file = 0xFFFFFFFF.
 ----------------------------------------------------------------------
 INFO:iMPACT:501 - '1': Added Device xc3s500e successfully.
 ----------------------------------------------------------------------
-INFO:iMPACT - Current time: 14/12/2018 4:21:46 p. m.
+INFO:iMPACT - Current time: 17/12/2018 11:25:51 a. m.
+// *** BATCH CMD : BlankCheck -p 2 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+'2': Putting device in ISP mode...done.
+'2': Putting device in ISP mode...done.
+'2': Performing blank check on device...done.
+'2': Part is blank.
+PROGRESS_END - End Operation.
+Elapsed time =      4 sec.
+INFO:iMPACT - Current time: 17/12/2018 11:25:57 a. m.
+// *** BATCH CMD : BlankCheck -p 3 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+'3': Performing blank-check on device...done.
+'3': Part is  Blank.
+'3': Blank-check successful. Device is blank.
+PROGRESS_END - End Operation.
+Elapsed time =      0 sec.
+INFO:iMPACT - Current time: 17/12/2018 11:25:59 a. m.
 // *** BATCH CMD : Program -p 1 
 Maximum TCK operating frequency for this device chain: 10000000.
 Validating chain...

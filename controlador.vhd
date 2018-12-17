@@ -107,41 +107,23 @@ begin
 				hrsd := 0;
 				hrsu := 0;
 			elsif (minuto'event and minuto = '0') then
-				if (mind < 6 and minu < 10 and hrsd < 2) then
-					minu := minu + 1;
-				elsif  (mind < 6 and minu >= 10 and hrsd < 2) then
+				minu := minu + 1;
+				if minu = 9 then 
 					mind := mind + 1;
 					minu := 0;
-				elsif (mind >= 6 and minu >= 10 and hrsd < 2 and hrsu < 10) then
-					mind := 0;
-					minu := 0;
-					hrsu := hrsu + 1;
-				elsif (mind >= 6 and minu >= 10 and hrsd < 2 and hrsu >= 10) then
-					mind := 0;
-					minu := 0;
-					hrsu := 0;
-					hrsd := hrsd + 1;
-				elsif (mind >= 6 and minu >= 10 and hrsd >= 2 and  hrsu < 4) then
-					mind := 0;
-					minu := 0;
-					hrsu := hrsu + 1;
-					hrsd := 2;
-				elsif (mind >= 6 and minu >= 10 and hrsd >= 2 and hrsu >= 4) then
-					mind := 0;
-					minu := 0;
-					hrsu := 0;
-					hrsd := 0;
 				end if;
---			elsif (hora'event and hora = '0') then
---				if (hrsd < 2 and hrsu < 10) then
---					hrsu := hrsu + 1;
---				elsif (hrsd >= 2 and hrsu < 10) then
---					hrsu := hrsu + 1;
---					hrsd := 2;
---				elsif (hrsd >= 2 and hrsu >= 4) then
---					hrsu := 0;
---					hrsd := 0;
---				end if;
+				if mind = 5 and minu = 9 then
+					 hrsu := hrsu + 1;
+					 mind := 0;
+				end if;
+				if hrsu = 9 then
+					hrsd := hrsd + 1;
+					hrsu := 0;
+				end if;
+				if hrsd = 2 and hrsu = 3 and mind = 5 and minu = 9 then
+					hrsd := 0;
+					hrsu := 0;
+				end if;
 			end if;
 			
 			minutosd <= std_logic_vector(to_unsigned(mind, 4));
