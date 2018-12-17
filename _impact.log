@@ -1,6 +1,6 @@
 iMPACT Version: 14.7
 
-iMPACT log file Started on Fri Dec 14 16:21:26 2018
+iMPACT log file Started on Mon Dec 17 14:00:16 2018
 
 Welcome to iMPACT
 iMPACT Version: 14.7
@@ -32,11 +32,11 @@ Firmware hex file version = 1303.
 PLD file version = 0012h.
  PLD version = 0012h.
 PROGRESS_END - End Operation.
-Elapsed time =      1 sec.
+Elapsed time =      0 sec.
 Type = 0x0004.
  ESN device is not available for this cable.
 Attempting to identify devices in the boundary-scan chain configuration...
-INFO:iMPACT - Current time: 14/12/2018 4:21:29 p. m.
+INFO:iMPACT - Current time: 17/12/2018 2:00:19 p. m.
 // *** BATCH CMD : Identify -inferir 
 PROGRESS_START - Starting Operation.
 Identifying chain contents...'0': : Manufacturer's ID = Xilinx xc2c64a, Version : 0
@@ -67,7 +67,7 @@ UserID read from the bitstream file = 0xFFFFFFFF.
 ----------------------------------------------------------------------
 INFO:iMPACT:501 - '1': Added Device xc3s500e successfully.
 ----------------------------------------------------------------------
-INFO:iMPACT - Current time: 14/12/2018 4:21:46 p. m.
+INFO:iMPACT - Current time: 17/12/2018 2:01:21 p. m.
 // *** BATCH CMD : Program -p 1 
 Maximum TCK operating frequency for this device chain: 10000000.
 Validating chain...

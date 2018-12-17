@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Reading design: controlador.prj
 
@@ -104,6 +104,8 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
+Compiling vhdl file "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia_5hz/div_frec_5hz.vhd" in Library work.
+Architecture divisor_de_frecuencia_5hz of Entity div_frec_5hz is up to date.
 Compiling vhdl file "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd" in Library work.
 Architecture eliminador_de_ruido of Entity eliminador is up to date.
 Compiling vhdl file "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd" in Library work.
@@ -115,6 +117,8 @@ Entity <controlador> (Architecture <casa_domotica>) compiled.
 =========================================================================
 Analyzing hierarchy for entity <controlador> in library <work> (architecture <casa_domotica>).
 
+Analyzing hierarchy for entity <div_frec_5hz> in library <work> (architecture <divisor_de_frecuencia_5hz>).
+
 Analyzing hierarchy for entity <eliminador> in library <work> (architecture <eliminador_de_ruido>).
 
 
@@ -122,9 +126,10 @@ Analyzing hierarchy for entity <eliminador> in library <work> (architecture <eli
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <controlador> in library <work> (Architecture <casa_domotica>).
-WARNING:Xst:819 - "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd" line 100: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <reset>
 Entity <controlador> analyzed. Unit <controlador> generated.
+
+Analyzing Entity <div_frec_5hz> in library <work> (Architecture <divisor_de_frecuencia_5hz>).
+Entity <div_frec_5hz> analyzed. Unit <div_frec_5hz> generated.
 
 Analyzing Entity <eliminador> in library <work> (Architecture <eliminador_de_ruido>).
 Entity <eliminador> analyzed. Unit <eliminador> generated.
@@ -135,6 +140,19 @@ Entity <eliminador> analyzed. Unit <eliminador> generated.
 =========================================================================
 
 Performing bidirectional port resolution...
+
+Synthesizing Unit <div_frec_5hz>.
+    Related source file is "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia_5hz/div_frec_5hz.vhd".
+    Found 1-bit register for signal <clkout>.
+    Found 24-bit comparator less for signal <clkout$cmp_lt0000> created at line 50.
+    Found 24-bit up counter for signal <count>.
+    Found 24-bit comparator less for signal <count$cmp_lt0000> created at line 47.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <div_frec_5hz> synthesized.
+
 
 Synthesizing Unit <eliminador>.
     Related source file is "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd".
@@ -153,7 +171,6 @@ WARNING:Xst:1306 - Output <aspersor> is never assigned.
 WARNING:Xst:1306 - Output <horpres> is never assigned.
 WARNING:Xst:1306 - Output <l> is never assigned.
 WARNING:Xst:1306 - Output <alarma> is never assigned.
-WARNING:Xst:646 - Signal <hora> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found finite state machine <FSM_0> for signal <pr_estado>.
     -----------------------------------------------------------------------
     | States             | 52                                             |
@@ -170,53 +187,56 @@ WARNING:Xst:646 - Signal <hora> is assigned but never used. This unconnected sig
     -----------------------------------------------------------------------
     Found 1-bit register for signal <E>.
     Found 17-bit register for signal <cuenta>.
-    Found 17-bit adder for signal <cuenta$addsub0000> created at line 75.
-    Found 17-bit comparator less for signal <cuenta$cmp_lt0000> created at line 74.
-    Found 17-bit comparator less for signal <E$cmp_lt0000> created at line 79.
+    Found 17-bit adder for signal <cuenta$addsub0000> created at line 81.
+    Found 17-bit comparator less for signal <cuenta$cmp_lt0000> created at line 80.
+    Found 17-bit comparator less for signal <E$cmp_lt0000> created at line 85.
+    Found 6-bit register for signal <horas>.
+    Found 6-bit comparator less for signal <horas$cmp_lt0000> created at line 125.
+    Found 6-bit adder for signal <horas$share0000>.
     Found 4-bit register for signal <hrsd>.
-    Found 4-bit adder for signal <hrsd$addsub0000> created at line 123.
+    Found 4-bit adder for signal <hrsd$add0000> created at line 133.
+    Found 4-bit adder for signal <hrsd$add0001> created at line 146.
+    Found 4-bit adder for signal <hrsd$addsub0000> created at line 150.
+    Found 6-bit comparator greatequal for signal <hrsd$cmp_ge0000> created at line 136.
+    Found 6-bit comparator greatequal for signal <hrsd$cmp_ge0001> created at line 136.
+    Found 6-bit comparator less for signal <hrsd$cmp_lt0000> created at line 153.
     Found 4-bit register for signal <hrsu>.
-    Found 4-bit adder for signal <hrsu$share0000> created at line 118.
+    Found 4-bit adder for signal <hrsu$addsub0000> created at line 126.
     Found 4-bit register for signal <mind>.
-    Found 4-bit adder for signal <mind$addsub0000> created at line 113.
-    Found 4-bit comparator greatequal for signal <mind$cmp_ge0000> created at line 123.
-    Found 4-bit comparator greatequal for signal <mind$cmp_ge0001> created at line 118.
-    Found 4-bit comparator greatequal for signal <mind$cmp_ge0002> created at line 114.
-    Found 4-bit comparator greatequal for signal <mind$cmp_ge0003> created at line 111.
-    Found 4-bit comparator greatequal for signal <mind$cmp_ge0004> created at line 111.
-    Found 4-bit comparator less for signal <mind$cmp_lt0000> created at line 110.
-    Found 4-bit comparator less for signal <mind$cmp_lt0001> created at line 110.
-    Found 4-bit comparator less for signal <mind$cmp_lt0002> created at line 110.
-    Found 4-bit comparator less for signal <mind$cmp_lt0003> created at line 128.
-    Found 4-bit comparator less for signal <mind$cmp_lt0004> created at line 118.
+    Found 4-bit adder for signal <mind$add0000> created at line 119.
+    Found 4-bit adder for signal <mind$addsub0000> created at line 122.
     Found 4-bit register for signal <minu>.
-    Found 4-bit adder for signal <minu$addsub0000> created at line 111.
+    Found 6-bit register for signal <minutos>.
+    Found 6-bit adder for signal <minutos$addsub0000> created at line 120.
     Summary:
 	inferred   1 Finite State Machine(s).
-	inferred  34 D-type flip-flop(s).
-	inferred   5 Adder/Subtractor(s).
-	inferred  12 Comparator(s).
+	inferred  46 D-type flip-flop(s).
+	inferred   9 Adder/Subtractor(s).
+	inferred   6 Comparator(s).
 Unit <controlador> synthesized.
 
 INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
-WARNING:Xst:524 - All outputs of the instance <u2> of the block <eliminador> are unconnected in block <controlador>.
-   This instance will be removed from the design along with all underlying logic
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 5
+# Adders/Subtractors                                   : 9
  17-bit adder                                          : 1
- 4-bit adder                                           : 4
-# Registers                                            : 7
- 1-bit register                                        : 2
+ 4-bit adder                                           : 6
+ 6-bit adder                                           : 2
+# Counters                                             : 1
+ 24-bit up counter                                     : 1
+# Registers                                            : 11
+ 1-bit register                                        : 4
  17-bit register                                       : 1
  4-bit register                                        : 4
-# Comparators                                          : 12
+ 6-bit register                                        : 2
+# Comparators                                          : 8
  17-bit comparator less                                : 2
- 4-bit comparator greatequal                           : 5
- 4-bit comparator less                                 : 5
+ 24-bit comparator less                                : 2
+ 6-bit comparator greatequal                           : 2
+ 6-bit comparator less                                 : 2
 
 =========================================================================
 
@@ -288,15 +308,19 @@ Advanced HDL Synthesis Report
 
 Macro Statistics
 # FSMs                                                 : 1
-# Adders/Subtractors                                   : 5
+# Adders/Subtractors                                   : 9
  17-bit adder                                          : 1
- 4-bit adder                                           : 4
-# Registers                                            : 35
- Flip-Flops                                            : 35
-# Comparators                                          : 12
+ 4-bit adder                                           : 6
+ 6-bit adder                                           : 2
+# Counters                                             : 1
+ 24-bit up counter                                     : 1
+# Registers                                            : 49
+ Flip-Flops                                            : 49
+# Comparators                                          : 8
  17-bit comparator less                                : 2
- 4-bit comparator greatequal                           : 5
- 4-bit comparator less                                 : 5
+ 24-bit comparator less                                : 2
+ 6-bit comparator greatequal                           : 2
+ 6-bit comparator less                                 : 2
 
 =========================================================================
 
@@ -305,16 +329,10 @@ Macro Statistics
 =========================================================================
 
 Optimizing unit <controlador> ...
-WARNING:Xst:1293 - FF/Latch <mind_3> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <mind_3> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <hrsd_2> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsd_3> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <hrsd_2> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <hrsd_3> has a constant value of 0 in block <controlador>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block controlador, actual ratio is 1.
+Found area constraint ratio of 100 (+ 5) on block controlador, actual ratio is 3.
 
 Final Macro Processing ...
 
@@ -322,8 +340,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 84
- Flip-Flops                                            : 84
+# Registers                                            : 125
+ Flip-Flops                                            : 125
 
 =========================================================================
 
@@ -352,30 +370,33 @@ Design Statistics
 # IOs                              : 22
 
 Cell Usage :
-# BELS                             : 183
+# BELS                             : 376
 #      GND                         : 1
-#      INV                         : 4
-#      LUT1                        : 18
-#      LUT2                        : 28
-#      LUT3                        : 10
-#      LUT3_D                      : 4
-#      LUT4                        : 42
-#      MUXCY                       : 56
-#      MUXF5                       : 2
+#      INV                         : 12
+#      LUT1                        : 49
+#      LUT2                        : 41
+#      LUT3                        : 22
+#      LUT3_D                      : 3
+#      LUT3_L                      : 1
+#      LUT4                        : 80
+#      LUT4_D                      : 7
+#      LUT4_L                      : 4
+#      MUXCY                       : 103
+#      MUXF5                       : 11
 #      VCC                         : 1
-#      XORCY                       : 17
-# FlipFlops/Latches                : 84
+#      XORCY                       : 41
+# FlipFlops/Latches                : 125
 #      FD                          : 17
-#      FDC                         : 1
-#      FDCE_1                      : 13
-#      FDR                         : 51
+#      FDC                         : 2
+#      FDCE_1                      : 28
+#      FDR                         : 76
 #      FDRS                        : 1
 #      FDS                         : 1
-# Clock Buffers                    : 2
-#      BUFG                        : 1
+# Clock Buffers                    : 3
+#      BUFG                        : 2
 #      BUFGP                       : 1
-# IO Buffers                       : 10
-#      IBUF                        : 2
+# IO Buffers                       : 11
+#      IBUF                        : 3
 #      OBUF                        : 8
 =========================================================================
 
@@ -384,13 +405,13 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                       86  out of   4656     1%  
- Number of Slice Flip Flops:             83  out of   9312     0%  
- Number of 4 input LUTs:                106  out of   9312     1%  
+ Number of Slices:                      140  out of   4656     3%  
+ Number of Slice Flip Flops:            123  out of   9312     1%  
+ Number of 4 input LUTs:                219  out of   9312     2%  
  Number of IOs:                          22
- Number of bonded IOBs:                  11  out of    232     4%  
-    IOB Flip Flops:                       1
- Number of GCLKs:                         2  out of     24     8%  
+ Number of bonded IOBs:                  12  out of    232     5%  
+    IOB Flip Flops:                       2
+ Number of GCLKs:                         3  out of     24    12%  
 
 ---------------------------
 Partition Resource Summary:
@@ -413,27 +434,26 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 19    |
-u1/edo_presente_0                  | NONE(minu_0)           | 13    |
-E_OBUF1                            | BUFG                   | 52    |
+clk                                | BUFGP                  | 43    |
+u0/clkout1                         | BUFG                   | 28    |
+E_OBUF1                            | BUFG                   | 54    |
 -----------------------------------+------------------------+-------+
-INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
 -----------------------------------+------------------------+-------+
 Control Signal                     | Buffer(FF name)        | Load  |
 -----------------------------------+------------------------+-------+
-reset                              | IBUF                   | 14    |
+reset                              | IBUF                   | 30    |
 -----------------------------------+------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 9.521ns (Maximum Frequency: 105.031MHz)
-   Minimum input arrival time before clock: 3.402ns
-   Maximum output required time after clock: 7.245ns
+   Minimum period: 10.380ns (Maximum Frequency: 96.339MHz)
+   Minimum input arrival time before clock: 3.407ns
+   Maximum output required time after clock: 7.032ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -443,7 +463,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 9.521ns (frequency: 105.031MHz)
-  Total number of paths / destination ports: 596 / 18
+  Total number of paths / destination ports: 1322 / 67
 -------------------------------------------------------------------------
 Delay:               9.521ns (Levels of Logic = 17)
   Source:            cuenta_1 (FF)
@@ -467,7 +487,7 @@ Delay:               9.521ns (Levels of Logic = 17)
      MUXCY:CI->O           1   0.059   0.000  Madd_cuenta_addsub0000_cy<8> (Madd_cuenta_addsub0000_cy<8>)
      MUXCY:CI->O           1   0.059   0.000  Madd_cuenta_addsub0000_cy<9> (Madd_cuenta_addsub0000_cy<9>)
      XORCY:CI->O           2   0.804   0.622  Madd_cuenta_addsub0000_xor<10> (cuenta_addsub0000<10>)
-     LUT2:I0->O            1   0.704   0.424  Mcompar_E_cmp_lt0000_lut<5>_SW0 (N18)
+     LUT2:I0->O            1   0.704   0.424  Mcompar_E_cmp_lt0000_lut<5>_SW0 (N57)
      LUT4:I3->O            1   0.704   0.000  Mcompar_E_cmp_lt0000_lut<5> (Mcompar_E_cmp_lt0000_lut<5>)
      MUXCY:S->O            1   0.464   0.000  Mcompar_E_cmp_lt0000_cy<5> (Mcompar_E_cmp_lt0000_cy<5>)
      MUXCY:CI->O           1   0.059   0.000  Mcompar_E_cmp_lt0000_cy<6> (Mcompar_E_cmp_lt0000_cy<6>)
@@ -479,29 +499,33 @@ Delay:               9.521ns (Levels of Logic = 17)
                                        (73.9% logic, 26.1% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'u1/edo_presente_0'
-  Clock period: 5.899ns (frequency: 169.520MHz)
-  Total number of paths / destination ports: 236 / 26
+Timing constraint: Default period analysis for Clock 'u0/clkout1'
+  Clock period: 10.380ns (frequency: 96.339MHz)
+  Total number of paths / destination ports: 3022 / 42
 -------------------------------------------------------------------------
-Delay:               5.899ns (Levels of Logic = 4)
-  Source:            mind_1 (FF)
-  Destination:       hrsu_0 (FF)
-  Source Clock:      u1/edo_presente_0 falling
-  Destination Clock: u1/edo_presente_0 falling
+Delay:               10.380ns (Levels of Logic = 8)
+  Source:            minutos_2 (FF)
+  Destination:       hrsd_3 (FF)
+  Source Clock:      u0/clkout1 falling
+  Destination Clock: u0/clkout1 falling
 
-  Data Path: mind_1 to hrsu_0
+  Data Path: minutos_2 to hrsd_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE_1:C->Q           6   0.591   0.748  mind_1 (mind_1)
-     LUT3_D:I1->O         10   0.704   1.057  mind_cmp_lt00001 (mind_cmp_lt0000)
-     LUT3:I0->O            1   0.704   0.000  hrsu_mux0000<0>1_F (N28)
-     MUXF5:I0->O           4   0.321   0.762  hrsu_mux0000<0>1 (N0)
-     LUT4:I0->O            1   0.704   0.000  hrsu_mux0000<0> (hrsu_mux0000<0>)
-     FDCE_1:D                  0.308          hrsu_3
+     FDCE_1:C->Q           5   0.591   0.808  minutos_2 (minutos_2)
+     LUT3_D:I0->O          4   0.704   0.591  hrsd_cmp_ge00011_SW0 (N29)
+     LUT4:I3->O            1   0.704   0.455  hrsd_cmp_eq0000_SW1 (N34)
+     LUT4:I2->O            9   0.704   0.824  hrsd_cmp_eq0000 (hrsd_cmp_eq0000)
+     LUT4_D:I3->O          3   0.704   0.535  hrsd_mux0000<0>12 (N2)
+     LUT4:I3->O            1   0.704   0.595  hrsd_mux0000<3>1 (Madd_hrsd_addsub0000_lut<3>)
+     LUT3:I0->O            1   0.704   0.424  hrsd_mux0001<0>_SW0 (N31)
+     LUT4:I3->O            1   0.704   0.000  hrsd_mux0001<0>_F (N63)
+     MUXF5:I0->O           1   0.321   0.000  hrsd_mux0001<0> (hrsd_mux0001<0>)
+     FDCE_1:D                  0.308          hrsd_3
     ----------------------------------------
-    Total                      5.899ns (3.332ns logic, 2.567ns route)
-                                       (56.5% logic, 43.5% route)
+    Total                     10.380ns (6.148ns logic, 4.232ns route)
+                                       (59.2% logic, 40.8% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'E_OBUF1'
@@ -525,29 +549,10 @@ Delay:               1.949ns (Levels of Logic = 0)
                                        (77.1% logic, 22.9% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Offset:              1.946ns (Levels of Logic = 1)
-  Source:            min (PAD)
-  Destination:       u1/edo_presente_0 (FF)
-  Destination Clock: clk rising
-
-  Data Path: min to u1/edo_presente_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             1   1.218   0.420  min_IBUF (min_IBUF)
-     FDC:D                     0.308          u1/edo_presente_0
-    ----------------------------------------
-    Total                      1.946ns (1.526ns logic, 0.420ns route)
-                                       (78.4% logic, 21.6% route)
-
-=========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'E_OBUF1'
-  Total number of paths / destination ports: 52 / 52
+  Total number of paths / destination ports: 54 / 54
 -------------------------------------------------------------------------
-Offset:              3.402ns (Levels of Logic = 1)
+Offset:              3.407ns (Levels of Logic = 1)
   Source:            reset (PAD)
   Destination:       pr_estado_FSM_FFd52 (FF)
   Destination Clock: E_OBUF1 rising
@@ -556,11 +561,11 @@ Offset:              3.402ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            66   1.218   1.273  reset_IBUF (reset_IBUF)
+     IBUF:I->O            82   1.218   1.278  reset_IBUF (reset_IBUF)
      FDS:S                     0.911          pr_estado_FSM_FFd52
     ----------------------------------------
-    Total                      3.402ns (2.129ns logic, 1.273ns route)
-                                       (62.6% logic, 37.4% route)
+    Total                      3.407ns (2.129ns logic, 1.278ns route)
+                                       (62.5% logic, 37.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -583,42 +588,47 @@ Offset:              4.310ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'E_OBUF1'
-  Total number of paths / destination ports: 95 / 5
+  Total number of paths / destination ports: 97 / 5
 -------------------------------------------------------------------------
-Offset:              6.992ns (Levels of Logic = 3)
-  Source:            pr_estado_FSM_FFd45 (FF)
-  Destination:       RS (PAD)
+Offset:              7.013ns (Levels of Logic = 9)
+  Source:            pr_estado_FSM_FFd33 (FF)
+  Destination:       DB<2> (PAD)
   Source Clock:      E_OBUF1 rising
 
-  Data Path: pr_estado_FSM_FFd45 to RS
+  Data Path: pr_estado_FSM_FFd33 to DB<2>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              3   0.591   0.706  pr_estado_FSM_FFd45 (pr_estado_FSM_FFd45)
-     LUT4:I0->O            1   0.704   0.595  pr_estado_FSM_Out5212 (pr_estado_FSM_Out5212)
-     LUT4:I0->O            1   0.704   0.420  pr_estado_FSM_Out5276 (RS_OBUF)
-     OBUF:I->O                 3.272          RS_OBUF (RS)
+     FDR:C->Q              5   0.591   0.808  pr_estado_FSM_FFd33 (pr_estado_FSM_FFd33)
+     LUT4:I0->O            1   0.704   0.000  DB<2>_wg_lut<0> (DB<2>_wg_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  DB<2>_wg_cy<0> (DB<2>_wg_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  DB<2>_wg_cy<1> (DB<2>_wg_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  DB<2>_wg_cy<2> (DB<2>_wg_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  DB<2>_wg_cy<3> (DB<2>_wg_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  DB<2>_wg_cy<4> (DB<2>_wg_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  DB<2>_wg_cy<5> (DB<2>_wg_cy<5>)
+     MUXCY:CI->O           1   0.459   0.420  DB<2>_wg_cy<6> (DB_2_OBUF)
+     OBUF:I->O                 3.272          DB_2_OBUF (DB<2>)
     ----------------------------------------
-    Total                      6.992ns (5.271ns logic, 1.721ns route)
-                                       (75.4% logic, 24.6% route)
+    Total                      7.013ns (5.785ns logic, 1.228ns route)
+                                       (82.5% logic, 17.5% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'u1/edo_presente_0'
-  Total number of paths / destination ports: 13 / 4
+Timing constraint: Default OFFSET OUT AFTER for Clock 'u0/clkout1'
+  Total number of paths / destination ports: 16 / 4
 -------------------------------------------------------------------------
-Offset:              7.245ns (Levels of Logic = 9)
+Offset:              7.032ns (Levels of Logic = 8)
   Source:            hrsd_1 (FF)
   Destination:       DB<1> (PAD)
-  Source Clock:      u1/edo_presente_0 falling
+  Source Clock:      u0/clkout1 falling
 
   Data Path: hrsd_1 to DB<1>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE_1:C->Q          12   0.591   1.040  hrsd_1 (hrsd_1)
-     LUT2:I1->O            1   0.704   0.000  DB<1>_wg_lut<0> (DB<1>_wg_lut<0>)
-     MUXCY:S->O            1   0.464   0.000  DB<1>_wg_cy<0> (DB<1>_wg_cy<0>)
-     MUXCY:CI->O           1   0.059   0.000  DB<1>_wg_cy<1> (DB<1>_wg_cy<1>)
+     FDCE_1:C->Q          10   0.591   0.886  hrsd_1 (hrsd_1)
+     LUT4:I3->O            1   0.704   0.000  DB<1>_wg_lut<1> (DB<1>_wg_lut<1>)
+     MUXCY:S->O            1   0.464   0.000  DB<1>_wg_cy<1> (DB<1>_wg_cy<1>)
      MUXCY:CI->O           1   0.059   0.000  DB<1>_wg_cy<2> (DB<1>_wg_cy<2>)
      MUXCY:CI->O           1   0.059   0.000  DB<1>_wg_cy<3> (DB<1>_wg_cy<3>)
      MUXCY:CI->O           1   0.059   0.000  DB<1>_wg_cy<4> (DB<1>_wg_cy<4>)
@@ -626,20 +636,20 @@ Offset:              7.245ns (Levels of Logic = 9)
      MUXCY:CI->O           1   0.459   0.420  DB<1>_wg_cy<6> (DB_1_OBUF)
      OBUF:I->O                 3.272          DB_1_OBUF (DB<1>)
     ----------------------------------------
-    Total                      7.245ns (5.785ns logic, 1.460ns route)
-                                       (79.8% logic, 20.2% route)
+    Total                      7.032ns (5.726ns logic, 1.306ns route)
+                                       (81.4% logic, 18.6% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.30 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.81 secs
  
 --> 
 
-Total memory usage is 4550560 kilobytes
+Total memory usage is 4550544 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   16 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 
