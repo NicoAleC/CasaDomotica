@@ -1,3 +1,4 @@
 vhdl work "../Eliminador_de_ruido/eliminador.vhd"
 vhdl work "../Divisor_de_frecuencia_5hz/div_frec_5hz.vhd"
+vhdl work "../Divisor_de_frecuencia/div_frec_vhdl.vhd"
 vhdl work "controlador.vhd"

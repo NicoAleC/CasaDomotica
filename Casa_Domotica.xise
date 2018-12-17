@@ -17,7 +17,7 @@
   <files>
     <file xil_pn:name="controlador.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="1"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="3"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="4"/>
     </file>
     <file xil_pn:name="../Eliminador_de_ruido/eliminador.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="7"/>
@@ -29,6 +29,10 @@
     <file xil_pn:name="../Divisor_de_frecuencia_5hz/div_frec_5hz.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="58"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="2"/>
+    </file>
+    <file xil_pn:name="../Divisor_de_frecuencia/div_frec_vhdl.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="59"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="3"/>
     </file>
   </files>
 

@@ -34,6 +34,7 @@ entity controlador is
            min : in  STD_LOGIC;
            hor : in  STD_LOGIC;
            reset : in  STD_LOGIC;
+			  habilitado: in STD_LOGIC;
            alarma : out  STD_LOGIC;
            aspersor : out  STD_LOGIC;
            luces : out  STD_LOGIC;
@@ -54,10 +55,14 @@ architecture casa_domotica of controlador is
 						  hd1, hd2, hu1, hu2, p1, p2, md1, md2, mu1, mu2,borr1,borr2,ret1,ret2);	
 	signal pr_estado,sig_estado: estados;
 	
+	type tiempos is (t0, t00, t01, t10, t11, t20, t21, t30, t31, t40, t41, t50, t51, t60, t61, t70, t71, t80, t81, t90, t91);
+	signal pr_tiempo, sig_tiempo: tiempos;
+	
 	signal hora, minuto: std_logic;
 	signal horasd, horasu, minutosd, minutosu: std_logic_vector (3 downto 0);
 	signal horas, minutos : integer range 0 to 60;
-	signal rel : std_logic;
+	signal rel, rel2 : std_logic;
+	
 	component eliminador is
     Port ( clk : in STD_LOGIC;
 			  reset : in  STD_LOGIC;
@@ -66,6 +71,11 @@ architecture casa_domotica of controlador is
 	end component;
 	
 	component div_frec_5hz is
+    Port ( clock : in  STD_LOGIC;
+           clkout : out  STD_LOGIC);
+	end component;
+	
+	component div_frec_vhdl is
     Port ( clock : in  STD_LOGIC;
            clkout : out  STD_LOGIC);
 	end component;
@@ -100,10 +110,14 @@ begin
 					end if; 
 				end process SEC_maquina;
 		u0: div_frec_5hz port map (clk, rel);
+		resetpres <= reset;
 		u1: eliminador port map (E, reset, min, minuto);
 		u2: eliminador port map (E, reset, hor, hora);
+		horpres <= hora;
+		minpres <= minuto;
+		u3: div_frec_vhdl port map (clk, rel2);
 		
-		temporizador: process (rel, minuto, hora, reset) 
+		temporizador: process (rel, minuto, hora, reset, rel2, habilitado) 
 			variable mind, minu : integer range 0 to 10 := 0;
 			variable hrsd, hrsu : integer range 0 to 10 := 0;
 		begin
@@ -114,8 +128,8 @@ begin
 				hrsu := 0;
 				horas <= 0;
 				minutos <= 0;
-			elsif (rel'event and rel = '0' and (minuto = '1' or hora = '1')) then
-				if minuto = '1' then
+			elsif (rel'event and rel = '0' and (minuto = '1' or hora = '1' or rel2 = '1')) then
+				if minuto = '1' or (rel2 = '1' and habilitado = '1') then
 					minu := minu + 1;
 					minutos <= minutos + 1;
 					if minu = 10 then 
@@ -165,6 +179,113 @@ begin
 		
 		end process temporizador;
 		
+		seq_tiempo: process(rel2, reset) begin
+			if(reset='1') then
+				pr_tiempo <= t0;
+			elsif(rel2'event and rel2='1') then	
+				pr_tiempo <= sig_tiempo;
+			end if; 
+		end process seq_tiempo;
+		
+		funcionalidades: process (horas, minutos, pr_tiempo) begin
+			alarma <= '0';
+			aspersor <= '0';
+			luces <= '0';
+			if horas = 6 and minutos >= 30 then
+				case pr_tiempo is
+					when t0 => 
+						alarma <= '0';
+						sig_tiempo <= t00;
+					when t00 =>
+						alarma <= '1';
+						sig_tiempo <= t01;
+					when t01 =>
+						alarma <= '0';
+						sig_tiempo <= t10;
+						
+					when t10 =>
+						alarma <= '1';
+						sig_tiempo <= t11;
+					when t11 =>
+						alarma <= '0';
+						sig_tiempo <= t20;
+						
+					when t20 =>
+						alarma <= '1';
+						sig_tiempo <= t21;
+					when t21 =>
+						alarma <= '0';
+						sig_tiempo <= t30;
+						
+					when t30 =>
+						alarma <= '1';
+						sig_tiempo <= t31;
+					when t31 =>
+						alarma <= '0';
+						sig_tiempo <= t40;
+						
+					when t40 =>
+						alarma <= '1';
+						sig_tiempo <= t41;
+					when t41 =>
+						alarma <= '0';
+						sig_tiempo <= t50;
+						
+					when t50 =>
+						alarma <= '1';
+						sig_tiempo <= t51;
+					when t51 =>
+						alarma <= '0';
+						sig_tiempo <= t60;
+						
+					when t60 =>
+						alarma <= '1';
+						sig_tiempo <= t61;
+					when t61 =>
+						alarma <= '0';
+						sig_tiempo <= t70;
+						
+					when t70 =>
+						alarma <= '1';
+						sig_tiempo <= t71;
+					when t71 =>
+						alarma <= '0';
+						sig_tiempo <= t80;
+						
+					when t80 =>
+						alarma <= '1';
+						sig_tiempo <= t81;
+					when t81 =>
+						alarma <= '0';
+						sig_tiempo <= t90;
+						
+					when t90 =>
+						alarma <= '1';
+						sig_tiempo <= t91;
+					when t91 =>
+						alarma <= '0';
+						sig_tiempo <= t91;
+				end case;
+			end if;
+			if horas >= 19 then
+				if horas < 23 then 
+					luces <= '1';
+				elsif horas = 23 and minutos = 0 then
+					luces <= '1';
+				else
+					luces <= '0';
+				end if;
+			end if;
+			if horas >= 4 then
+				if horas < 6 then
+					aspersor <= '1';
+				elsif horas = 6 and minutos = 0 then
+					aspersor <= '1';
+				else 
+					aspersor <= '0';
+				end if;
+			end if;
+		end process funcionalidades;
 		
 		COMB_maquina: process (horasd, horasu, minutosd, minutosu, pr_estado) --- PARTE COMBINATORIA DE LA MAQUINA DE ESTADOS
 			  

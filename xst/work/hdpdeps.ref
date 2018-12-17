@@ -1,22 +1,29 @@
-V3 11
-FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd 2018/12/17.13:59:27 P.20131013
-EN work/controlador 1545069573 \
+V3 15
+FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd 2018/12/17.19:02:54 P.20131013
+EN work/controlador 1545087788 \
       FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
-AR work/controlador/casa_domotica 1545069574 \
+AR work/controlador/casa_domotica 1545087789 \
       FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd \
-      EN work/controlador 1545069573 CP div_frec_5hz CP eliminador
+      EN work/controlador 1545087788 CP div_frec_5hz CP eliminador CP div_frec_vhdl
+FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia/div_frec_vhdl.vhd 2018/12/17.18:21:47 P.20131013
+EN work/div_frec_vhdl 1545087786 \
+      FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia/div_frec_vhdl.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/div_frec_vhdl/divisor_de_fecuencia 1545087787 \
+      FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia/div_frec_vhdl.vhd \
+      EN work/div_frec_vhdl 1545087786
 FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia_5hz/div_frec_5hz.vhd 2018/12/10.08:17:26 P.20131013
-EN work/div_frec_5hz 1545069569 \
+EN work/div_frec_5hz 1545087782 \
       FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia_5hz/div_frec_5hz.vhd \
       PB ieee/std_logic_1164 1381692176
-AR work/div_frec_5hz/Divisor_de_frecuencia_5hz 1545069570 \
+AR work/div_frec_5hz/Divisor_de_frecuencia_5hz 1545087783 \
       FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia_5hz/div_frec_5hz.vhd \
-      EN work/div_frec_5hz 1545069569
+      EN work/div_frec_5hz 1545087782
 FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd 2018/12/17.11:47:06 P.20131013
-EN work/eliminador 1545069571 \
+EN work/eliminador 1545087784 \
       FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd \
       PB ieee/std_logic_1164 1381692176
-AR work/eliminador/Eliminador_de_ruido 1545069572 \
+AR work/eliminador/Eliminador_de_ruido 1545087785 \
       FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd \
-      EN work/eliminador 1545069571
+      EN work/eliminador 1545087784
