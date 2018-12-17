@@ -78,3 +78,107 @@ map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o control
 par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
 trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
 bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 
+xst -intstyle ise -ifn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.xst" -ofn "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc controlador_cf.ucf -p xc3s500e-fg320-4 controlador.ngc controlador.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o controlador_map.ncd controlador.ngd controlador.pcf 
+par -w -intstyle ise -ol high -t 1 controlador_map.ncd controlador.ncd controlador.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml controlador.twx controlador.ncd -o controlador.twr controlador.pcf -ucf controlador_cf.ucf 
+bitgen -intstyle ise -f controlador.ut controlador.ncd 

@@ -1,15 +1,22 @@
-V3 7
-FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd 2018/12/17.11:22:32 P.20131013
-EN work/controlador 1545060157 \
+V3 11
+FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd 2018/12/17.13:59:27 P.20131013
+EN work/controlador 1545069573 \
       FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
-AR work/controlador/casa_domotica 1545060158 \
+AR work/controlador/casa_domotica 1545069574 \
       FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd \
-      EN work/controlador 1545060157 CP eliminador
-FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd 2018/12/10.08:35:14 P.20131013
-EN work/eliminador 1545060155 \
+      EN work/controlador 1545069573 CP div_frec_5hz CP eliminador
+FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia_5hz/div_frec_5hz.vhd 2018/12/10.08:17:26 P.20131013
+EN work/div_frec_5hz 1545069569 \
+      FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia_5hz/div_frec_5hz.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/div_frec_5hz/Divisor_de_frecuencia_5hz 1545069570 \
+      FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia_5hz/div_frec_5hz.vhd \
+      EN work/div_frec_5hz 1545069569
+FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd 2018/12/17.11:47:06 P.20131013
+EN work/eliminador 1545069571 \
       FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd \
       PB ieee/std_logic_1164 1381692176
-AR work/eliminador/Eliminador_de_ruido 1545060156 \
+AR work/eliminador/Eliminador_de_ruido 1545069572 \
       FL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd \
-      EN work/eliminador 1545060155
+      EN work/eliminador 1545069571

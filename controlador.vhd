@@ -56,12 +56,18 @@ architecture casa_domotica of controlador is
 	
 	signal hora, minuto: std_logic;
 	signal horasd, horasu, minutosd, minutosu: std_logic_vector (3 downto 0);
-	
+	signal horas, minutos : integer range 0 to 60;
+	signal rel : std_logic;
 	component eliminador is
     Port ( clk : in STD_LOGIC;
 			  reset : in  STD_LOGIC;
 			  pbsync : in STD_LOGIC;
            pulse : out  STD_LOGIC);
+	end component;
+	
+	component div_frec_5hz is
+    Port ( clock : in  STD_LOGIC;
+           clkout : out  STD_LOGIC);
 	end component;
 
 begin
@@ -93,11 +99,11 @@ begin
 					 end if;
 					end if; 
 				end process SEC_maquina;
-				
-		u1: eliminador port map (clk, reset, min, minuto);
-		u2: eliminador port map (clk, reset, hor, hora);
+		u0: div_frec_5hz port map (clk, rel);
+		u1: eliminador port map (E, reset, min, minuto);
+		u2: eliminador port map (E, reset, hor, hora);
 		
-		temporizador: process (hora, minuto) 
+		temporizador: process (rel, minuto, hora, reset) 
 			variable mind, minu : integer range 0 to 10 := 0;
 			variable hrsd, hrsu : integer range 0 to 10 := 0;
 		begin
@@ -106,23 +112,49 @@ begin
 				minu := 0;
 				hrsd := 0;
 				hrsu := 0;
-			elsif (minuto'event and minuto = '0') then
-				minu := minu + 1;
-				if minu = 9 then 
-					mind := mind + 1;
-					minu := 0;
+				horas <= 0;
+				minutos <= 0;
+			elsif (rel'event and rel = '0' and (minuto = '1' or hora = '1')) then
+				if minuto = '1' then
+					minu := minu + 1;
+					minutos <= minutos + 1;
+					if minu = 10 then 
+						mind := mind + 1;
+						minu := 0;
+					end if;
+					if minutos >= 59 then
+						 hrsu := hrsu + 1;
+						 mind := 0;
+						 minu := 0;
+						 minutos <= 0;
+						 horas <= horas + 1;
+					end if;
+					if hrsu = 10 then
+						hrsd := hrsd + 1;
+						hrsu := 0;
+					end if;
+					if horas >= 23 and minutos >= 59 then
+						hrsd := 0;
+						hrsu := 0;
+						mind := 0;
+						minu := 0;
+						horas <= 0;
+						minutos <= 0;
+					end if;
 				end if;
-				if mind = 5 and minu = 9 then
-					 hrsu := hrsu + 1;
-					 mind := 0;
-				end if;
-				if hrsu = 9 then
-					hrsd := hrsd + 1;
-					hrsu := 0;
-				end if;
-				if hrsd = 2 and hrsu = 3 and mind = 5 and minu = 9 then
-					hrsd := 0;
-					hrsu := 0;
+				if hora = '1' then
+					hrsu := hrsu + 1;
+					horas <= horas + 1;
+					
+					if hrsu = 10 then
+						hrsd := hrsd + 1;
+						hrsu := 0;
+					end if;
+					if horas >= 23 then
+						hrsd := 0;
+						hrsu := 0;
+						horas <= 0;
+					end if;
 				end if;
 			end if;
 			

@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Mon Dec 17 11:23:30 2018
+Mon Dec 17 13:59:48 2018
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -91,7 +91,7 @@ Pinout by Pin Number:
 |D15       |           |         |TMS                      |         |           |              |          |         |           |         |         |          |           |                |
 |D16       |SF_CE0     |IOB      |IO_L23N_1/LDC0           |OUTPUT   |LVTTL      |1             |2         |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
 |D17       |           |DIFFM    |IO_L23P_1/HDC            |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
-|D18       |           |IBUF     |IP/VREF_1                |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|D18       |hor        |IBUF     |IP/VREF_1                |INPUT    |LVTTL      |1             |          |         |PULLDOWN   |IFD      |         |LOCATED   |YES        |NONE            |
 |E1        |           |DIFFS    |IO_L03N_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |E2        |           |DIFFM    |IO_L03P_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |E3        |           |         |NC                       |         |           |              |          |         |           |         |         |          |           |                |
@@ -194,7 +194,7 @@ Pinout by Pin Number:
 |K14       |           |DIFFS    |IO_L12N_1/A7/RHCLK3/TRDY1|UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |K15       |           |DIFFM    |IO_L12P_1/A8/RHCLK2      |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |K16       |           |         |GND                      |         |           |              |          |         |           |         |         |          |           |                |
-|K17       |           |IBUF     |IP                       |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|K17       |min        |IBUF     |IP                       |INPUT    |LVTTL      |1             |          |         |PULLDOWN   |IFD      |         |LOCATED   |YES        |NONE            |
 |K18       |           |IBUF     |IP                       |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |L1        |           |DIFFM    |IO_L15P_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |L2        |           |DIFFS    |IO_L15N_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
@@ -208,8 +208,8 @@ Pinout by Pin Number:
 |L10       |           |         |GND                      |         |           |              |          |         |           |         |         |          |           |                |
 |L11       |           |         |GND                      |         |           |              |          |         |           |         |         |          |           |                |
 |L12       |           |         |VCCO_1                   |         |           |1             |          |         |           |         |3.30     |          |           |                |
-|L13       |min        |IBUF     |IP                       |INPUT    |LVTTL      |1             |          |         |PULLUP     |IFD      |         |LOCATED   |YES        |NONE            |
-|L14       |hor        |IBUF     |IP                       |INPUT    |LVTTL      |1             |          |         |PULLUP     |NONE     |         |LOCATED   |NO         |NONE            |
+|L13       |           |IBUF     |IP                       |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|L14       |           |IBUF     |IP                       |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |L15       |           |DIFFS    |IO_L09N_1/A11            |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |L16       |           |DIFFM    |IO_L09P_1/A12            |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |L17       |RW         |IOB      |IO_L10N_1/VREF_1         |OUTPUT   |LVTTL      |1             |2         |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
