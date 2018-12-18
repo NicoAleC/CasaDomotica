@@ -9,7 +9,7 @@ Target Device  : xc3s500e
 Target Package : fg320
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Mon Dec 17 19:03:12 2018
+Mapped Date    : Tue Dec 18 09:35:40 2018
 
 Mapping design into LUTs...
 Running directed packing...
@@ -24,17 +24,17 @@ Design Summary:
 Number of errors:      0
 Number of warnings:    0
 Logic Utilization:
-  Total Number Slice Registers:         190 out of   9,312    2%
-    Number used as Flip Flops:          170
+  Total Number Slice Registers:         186 out of   9,312    1%
+    Number used as Flip Flops:          166
     Number used as Latches:              20
-  Number of 4 input LUTs:               203 out of   9,312    2%
+  Number of 4 input LUTs:               316 out of   9,312    3%
 Logic Distribution:
-  Number of occupied Slices:            199 out of   4,656    4%
-    Number of Slices containing only related logic:     199 out of     199 100%
-    Number of Slices containing unrelated logic:          0 out of     199   0%
+  Number of occupied Slices:            249 out of   4,656    5%
+    Number of Slices containing only related logic:     249 out of     249 100%
+    Number of Slices containing unrelated logic:          0 out of     249   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         285 out of   9,312    3%
-    Number used as logic:               203
+  Total Number of 4 input LUTs:         398 out of   9,312    4%
+    Number used as logic:               316
     Number used as a route-thru:         82
 
   The Slice Logic Distribution report is not meaningful if the design is
@@ -44,9 +44,9 @@ Logic Distribution:
     IOB Flip Flops:                       4
   Number of BUFGMUXs:                     5 out of      24   20%
 
-Average Fanout of Non-Clock Nets:                3.03
+Average Fanout of Non-Clock Nets:                3.23
 
-Peak Memory Usage:  4436 MB
+Peak Memory Usage:  4451 MB
 Total REAL time to MAP completion:  1 secs 
 Total CPU time to MAP completion:   1 secs 
 
