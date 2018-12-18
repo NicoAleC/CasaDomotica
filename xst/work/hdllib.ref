@@ -1,8 +1,8 @@
-EN div_frec_vhdl NULL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia/div_frec_vhdl.vhd sub00/vhpl06 1545143902
-EN eliminador NULL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd sub00/vhpl02 1545143900
-AR div_frec_vhdl divisor_de_fecuencia C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia/div_frec_vhdl.vhd sub00/vhpl07 1545143903
-AR div_frec_5hz divisor_de_frecuencia_5hz C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia_5hz/div_frec_5hz.vhd sub00/vhpl05 1545143899
-EN div_frec_5hz NULL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia_5hz/div_frec_5hz.vhd sub00/vhpl04 1545143898
-EN controlador NULL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd sub00/vhpl00 1545143904
-AR controlador casa_domotica C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd sub00/vhpl01 1545143905
-AR eliminador eliminador_de_ruido C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd sub00/vhpl03 1545143901
+EN div_frec_vhdl NULL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia/div_frec_vhdl.vhd sub00/vhpl06 1545149711
+EN eliminador NULL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd sub00/vhpl02 1545149709
+AR div_frec_vhdl divisor_de_fecuencia C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia/div_frec_vhdl.vhd sub00/vhpl07 1545149712
+AR div_frec_5hz divisor_de_frecuencia_5hz C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia_5hz/div_frec_5hz.vhd sub00/vhpl05 1545149708
+EN div_frec_5hz NULL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Divisor_de_frecuencia_5hz/div_frec_5hz.vhd sub00/vhpl04 1545149707
+EN controlador NULL C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd sub00/vhpl00 1545149713
+AR controlador casa_domotica C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd sub00/vhpl01 1545149714
+AR eliminador eliminador_de_ruido C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Eliminador_de_ruido/eliminador.vhd sub00/vhpl03 1545149710

@@ -117,7 +117,7 @@ begin
 		m2: eliminador port map (E, reset, hor, hora);
 		horpres <= hora;
 		minpres <= minuto;
-		mS3: div_frec_vhdl port map (clk, rel2);
+		m3: div_frec_vhdl port map (clk, rel2);
 		
 		temporizador: process (rel, minuto, hora, reset, rel2, habilitado) 
 			variable mind, minu : integer range 0 to 10 := 0;
@@ -144,7 +144,7 @@ begin
 					end if;
 					if segundos >= 59 then
 						minu := minu + 1;
-						minutos <= + 1;
+						minutos <= minutos + 1;
 						segd := 0;
 						segu := 0;
 						segundos <= 0;
@@ -239,11 +239,11 @@ begin
 			end if; 
 		end process seq_tiempo;
 		
-		funcionalidades: process (horas, minutos, pr_tiempo) begin
+		funcionalidades: process (horas, minutos, segundos, pr_tiempo) begin
 			alarm <= '0';
 			asper <= '0';
 			luc <= '0';
-			if horas = 6 and minutos >= 30 then
+			if horas = 6 and minutos >= 30 and segundos >= 0 then
 				case pr_tiempo is
 					when t0 => 
 						alarm <= '0';
@@ -322,16 +322,12 @@ begin
 			if horas >= 19 then
 				if horas < 23 then 
 					luc <= '1';
-				elsif horas = 23 and minutos = 0 then
-					luc <= '1';
 				else
 					luc <= '0';
 				end if;
 			end if;
 			if horas >= 4 then
 				if horas < 6 then
-					asper <= '1';
-				elsif horas = 6 and minutos = 0 then
 					asper <= '1';
 				else 
 					asper <= '0';

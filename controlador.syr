@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: controlador.prj
 
@@ -130,7 +130,7 @@ Analyzing hierarchy for entity <div_frec_vhdl> in library <work> (architecture <
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <controlador> in library <work> (Architecture <casa_domotica>).
-WARNING:Xst:819 - "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd" line 345: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+WARNING:Xst:819 - "C:/Users/chinc/Documents/upb/ElectronicaDigital/Xilinx/Casa_Domotica/controlador.vhd" line 341: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <segundosd>, <segundosu>, <alarm>, <asper>, <luc>
 Entity <controlador> analyzed. Unit <controlador> generated.
 
@@ -204,8 +204,8 @@ WARNING:Xst:1306 - Output <l> is never assigned.
 WARNING:Xst:737 - Found 21-bit latch for signal <sig_tiempo>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Using one-hot encoding for signal <pr_tiempo>.
     Found 1-bit register for signal <E>.
-    Found 6-bit comparator greatequal for signal <asper$cmp_ge0000> created at line 331.
-    Found 6-bit comparator less for signal <asper$cmp_lt0000> created at line 332.
+    Found 6-bit comparator greatequal for signal <asper$cmp_ge0000> created at line 329.
+    Found 6-bit comparator less for signal <asper$cmp_lt0000> created at line 330.
     Found 17-bit register for signal <cuenta>.
     Found 17-bit adder for signal <cuenta$addsub0000> created at line 93.
     Found 17-bit comparator less for signal <cuenta$cmp_lt0000> created at line 92.
@@ -233,8 +233,8 @@ WARNING:Xst:737 - Found 21-bit latch for signal <sig_tiempo>. Latches may be gen
     Found 4-bit register for signal <minu>.
     Found 4-bit adder for signal <minu$addsub0000> created at line 146.
     Found 6-bit register for signal <minutos>.
-    Found 6-bit adder for signal <minutos$addsub0000> created at line 184.
     Found 6-bit comparator less for signal <minutos$cmp_lt0000> created at line 145.
+    Found 6-bit adder for signal <minutos$share0000>.
     Found 21-bit register for signal <pr_tiempo>.
     Found 4-bit register for signal <segd>.
     Found 4-bit adder for signal <segd$add0000> created at line 139.
@@ -432,21 +432,21 @@ Design Statistics
 # IOs                              : 23
 
 Cell Usage :
-# BELS                             : 639
+# BELS                             : 635
 #      GND                         : 1
 #      INV                         : 18
 #      LUT1                        : 82
-#      LUT2                        : 49
-#      LUT2_D                      : 4
+#      LUT2                        : 52
+#      LUT2_D                      : 3
 #      LUT2_L                      : 1
-#      LUT3                        : 53
-#      LUT3_D                      : 4
-#      LUT3_L                      : 5
-#      LUT4                        : 171
-#      LUT4_D                      : 24
-#      LUT4_L                      : 11
+#      LUT3                        : 47
+#      LUT3_D                      : 5
+#      LUT3_L                      : 3
+#      LUT4                        : 169
+#      LUT4_D                      : 23
+#      LUT4_L                      : 18
 #      MUXCY                       : 123
-#      MUXF5                       : 25
+#      MUXF5                       : 22
 #      VCC                         : 1
 #      XORCY                       : 67
 # FlipFlops/Latches                : 218
@@ -471,9 +471,9 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                      241  out of   4656     5%  
+ Number of Slices:                      240  out of   4656     5%  
  Number of Slice Flip Flops:            214  out of   9312     2%  
- Number of 4 input LUTs:                422  out of   9312     4%  
+ Number of 4 input LUTs:                421  out of   9312     4%  
  Number of IOs:                          23
  Number of bonded IOBs:                  19  out of    232     8%  
     IOB Flip Flops:                       4
@@ -503,7 +503,7 @@ Clock Signal                                   | Clock buffer(FF name)  | Load  
 clk                                            | BUFGP                  | 70    |
 m0/clkout1                                     | BUFG                   | 42    |
 E_OBUF1                                        | BUFG                   | 66    |
-mS3/clkout1                                    | BUFG                   | 20    |
+m3/clkout1                                     | BUFG                   | 20    |
 sig_tiempo_cmp_eq00001(sig_tiempo_cmp_eq0000:O)| BUFG(*)(sig_tiempo_0)  | 20    |
 -----------------------------------------------+------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
@@ -522,9 +522,9 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 14.969ns (Maximum Frequency: 66.807MHz)
-   Minimum input arrival time before clock: 13.443ns
-   Maximum output required time after clock: 13.728ns
+   Minimum period: 14.774ns (Maximum Frequency: 67.689MHz)
+   Minimum input arrival time before clock: 13.759ns
+   Maximum output required time after clock: 12.522ns
    Maximum combinational path delay: 5.783ns
 
 Timing Detail:
@@ -568,35 +568,35 @@ Delay:               9.941ns (Levels of Logic = 14)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'm0/clkout1'
-  Clock period: 14.969ns (frequency: 66.807MHz)
-  Total number of paths / destination ports: 40326 / 66
+  Clock period: 14.774ns (frequency: 67.689MHz)
+  Total number of paths / destination ports: 35686 / 66
 -------------------------------------------------------------------------
-Delay:               14.969ns (Levels of Logic = 11)
-  Source:            minutos_2 (FF)
-  Destination:       hrsd_3 (FF)
+Delay:               14.774ns (Levels of Logic = 11)
+  Source:            segundos_2 (FF)
+  Destination:       hrsd_2 (FF)
   Source Clock:      m0/clkout1 falling
   Destination Clock: m0/clkout1 falling
 
-  Data Path: minutos_2 to hrsd_3
+  Data Path: segundos_2 to hrsd_2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE_1:C->Q           6   0.591   0.844  minutos_2 (minutos_2)
-     LUT3_L:I0->LO         1   0.704   0.104  hrsd_cmp_ge00011_SW0 (N50)
-     LUT4:I3->O           49   0.704   1.272  hrsd_cmp_ge00011 (hrsd_cmp_ge0001)
-     LUT4:I3->O            2   0.704   0.622  hrsd_cmp_eq0000_SW0 (N84)
-     LUT3:I0->O            5   0.704   0.637  hrsd_cmp_eq0000 (hrsd_cmp_eq0000)
-     LUT4_D:I3->O          8   0.704   0.792  hrsu_mux0003<1>1 (Madd_hrsu_addsub0000_lut<1>)
-     LUT3_D:I2->O          2   0.704   0.451  hrsd_cmp_eq00011_SW0 (N86)
-     LUT4:I3->O            1   0.704   0.000  hrsu_mux0007<1>1_G (N162)
-     MUXF5:I1->O          11   0.321   0.933  hrsu_mux0007<1>1 (Madd_hrsd_add0002_lut<1>)
-     MUXF5:S->O            1   0.739   0.424  hrsd_cmp_eq00021_SW7 (N134)
-     LUT4:I3->O            1   0.704   0.595  hrsd_mux0002<0>22 (hrsd_mux0002<0>22)
-     LUT4:I0->O            1   0.704   0.000  hrsd_mux0002<0>86 (hrsd_mux0002<0>)
-     FDCE_1:D                  0.308          hrsd_3
+     FDCE_1:C->Q           5   0.591   0.808  segundos_2 (segundos_2)
+     LUT3_L:I0->LO         1   0.704   0.104  hrsd_cmp_ge00021_SW0 (N87)
+     LUT4:I3->O           52   0.704   1.304  hrsd_cmp_ge00021 (hrsd_cmp_ge0002)
+     LUT4_D:I2->O          5   0.704   0.668  hrsu_mux0000<3>1 (hrsu_mux0000<3>)
+     LUT3_D:I2->LO         1   0.704   0.104  hrsd_cmp_eq00001 (N274)
+     LUT4:I3->O            9   0.704   0.824  hrsu_mux0003<1>1 (Madd_hrsu_addsub0000_lut<1>)
+     LUT4_D:I3->O         11   0.704   0.937  hrsd_cmp_eq0001 (hrsd_cmp_eq0001)
+     LUT4:I3->O            1   0.704   0.000  hrsu_mux0007<3>1_G (N198)
+     MUXF5:I1->O           6   0.321   0.673  hrsu_mux0007<3>1 (Madd_hrsd_add0002_lut<3>)
+     LUT4_D:I3->O          5   0.704   0.637  hrsd_cmp_eq00021 (hrsd_cmp_eq0002)
+     LUT4:I3->O            1   0.704   0.455  hrsd_mux0002<1>76 (hrsd_mux0002<1>76)
+     LUT4:I2->O            1   0.704   0.000  hrsd_mux0002<1>79 (hrsd_mux0002<1>)
+     FDCE_1:D                  0.308          hrsd_2
     ----------------------------------------
-    Total                     14.969ns (8.295ns logic, 6.674ns route)
-                                       (55.4% logic, 44.6% route)
+    Total                     14.774ns (8.260ns logic, 6.514ns route)
+                                       (55.9% logic, 44.1% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'E_OBUF1'
@@ -621,31 +621,32 @@ Delay:               1.949ns (Levels of Logic = 0)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'm0/clkout1'
-  Total number of paths / destination ports: 952 / 58
+  Total number of paths / destination ports: 1156 / 58
 -------------------------------------------------------------------------
-Offset:              13.443ns (Levels of Logic = 10)
+Offset:              13.759ns (Levels of Logic = 11)
   Source:            habilitado (PAD)
-  Destination:       hrsd_3 (FF)
+  Destination:       hrsd_0 (FF)
   Destination Clock: m0/clkout1 falling
 
-  Data Path: habilitado to hrsd_3
+  Data Path: habilitado to hrsd_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             9   1.218   0.899  habilitado_IBUF (habilitado_IBUF)
+     IBUF:I->O            12   1.218   1.040  habilitado_IBUF (habilitado_IBUF)
      LUT2:I1->O           26   0.704   1.295  hrsd_not000111 (hrsd_and0000)
-     LUT4_L:I2->LO         1   0.704   0.104  Madd_hrsu_addsub0000_cy<1>11_SW0_SW0 (N92)
-     LUT4:I3->O            2   0.704   0.622  Madd_hrsu_addsub0000_cy<1>11_SW0 (N63)
-     LUT2:I0->O            1   0.704   0.424  hrsu_mux0004<3>1_SW0 (N98)
-     LUT4:I3->O            1   0.704   0.455  hrsd_mux0002<0>111_SW0 (N79)
-     LUT4:I2->O            8   0.704   0.792  hrsu_mux0007<3>1 (Madd_hrsd_add0002_lut<3>)
-     LUT4:I2->O            1   0.704   0.424  hrsd_mux0002<0>2_SW0 (N151)
-     LUT4_D:I3->O          3   0.704   0.566  hrsd_mux0002<0>2 (N7)
-     LUT4:I2->O            1   0.704   0.000  hrsd_mux0002<0>86 (hrsd_mux0002<0>)
-     FDCE_1:D                  0.308          hrsd_3
+     LUT4_D:I2->O          1   0.704   0.424  hrsu_mux0003<2>1_SW0 (N178)
+     LUT4:I3->O            3   0.704   0.535  hrsu_mux0003<2>1 (Madd_hrsu_addsub0000_lut<2>)
+     LUT4:I3->O            1   0.704   0.455  hrsu_mux0004<2>1_SW1 (N156)
+     LUT4_D:I2->LO         1   0.704   0.104  hrsu_mux0007<2>1 (N277)
+     LUT4:I3->O            3   0.704   0.566  hrsd_cmp_eq00021_SW1 (N120)
+     LUT4_L:I2->LO         1   0.704   0.104  hrsd_mux0002<0>211_SW3 (N162)
+     LUT4:I3->O            3   0.704   0.535  hrsd_mux0002<0>2 (N7)
+     LUT4_L:I3->LO         1   0.704   0.135  hrsd_mux0002<3>_SW0_SW0_SW0 (N176)
+     LUT3:I2->O            1   0.704   0.000  hrsd_mux0002<3> (hrsd_mux0002<3>)
+     FDCE_1:D                  0.308          hrsd_0
     ----------------------------------------
-    Total                     13.443ns (7.862ns logic, 5.581ns route)
-                                       (58.5% logic, 41.5% route)
+    Total                     13.759ns (8.566ns logic, 5.193ns route)
+                                       (62.3% logic, 37.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'E_OBUF1'
@@ -689,78 +690,75 @@ Offset:              4.310ns (Levels of Logic = 1)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'E_OBUF1'
   Total number of paths / destination ports: 149 / 7
 -------------------------------------------------------------------------
-Offset:              11.877ns (Levels of Logic = 7)
-  Source:            pr_estado_FSM_FFd27 (FF)
+Offset:              10.490ns (Levels of Logic = 6)
+  Source:            pr_estado_FSM_FFd50 (FF)
   Destination:       DB<1> (PAD)
   Source Clock:      E_OBUF1 rising
 
-  Data Path: pr_estado_FSM_FFd27 to DB<1>
+  Data Path: pr_estado_FSM_FFd50 to DB<1>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              3   0.591   0.706  pr_estado_FSM_FFd27 (pr_estado_FSM_FFd27)
-     LUT4:I0->O            1   0.704   0.595  DB<1>7 (DB<1>7)
-     LUT4:I0->O            1   0.704   0.424  DB<1>15_SW0 (N191)
-     LUT4:I3->O            1   0.704   0.595  DB<1>15 (DB<1>15)
-     LUT4:I0->O            1   0.704   0.595  DB<1>77 (DB<1>77)
-     LUT2:I0->O            1   0.704   0.455  DB<1>101 (DB<1>101)
-     LUT4:I2->O            1   0.704   0.420  DB<1>174 (DB_1_OBUF)
+     FDRS:C->Q             2   0.591   0.622  pr_estado_FSM_FFd50 (pr_estado_FSM_FFd50)
+     LUT4:I0->O            1   0.704   0.595  DB<1>24 (DB<1>24)
+     LUT3:I0->O            2   0.704   0.622  DB<1>220 (N9)
+     LUT4:I0->O            1   0.704   0.424  DB<1>65 (DB<1>65)
+     LUT4:I3->O            1   0.704   0.424  DB<1>104 (DB<1>104)
+     LUT4:I3->O            1   0.704   0.420  DB<1>174 (DB_1_OBUF)
      OBUF:I->O                 3.272          DB_1_OBUF (DB<1>)
     ----------------------------------------
-    Total                     11.877ns (8.087ns logic, 3.790ns route)
-                                       (68.1% logic, 31.9% route)
+    Total                     10.490ns (7.383ns logic, 3.107ns route)
+                                       (70.4% logic, 29.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'm0/clkout1'
-  Total number of paths / destination ports: 594 / 7
+  Total number of paths / destination ports: 287 / 7
 -------------------------------------------------------------------------
-Offset:              13.728ns (Levels of Logic = 9)
-  Source:            minutos_0 (FF)
-  Destination:       DB<2> (PAD)
+Offset:              12.522ns (Levels of Logic = 7)
+  Source:            horas_3 (FF)
+  Destination:       DB<0> (PAD)
   Source Clock:      m0/clkout1 falling
 
-  Data Path: minutos_0 to DB<2>
+  Data Path: horas_3 to DB<0>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE_1:C->Q           7   0.591   0.883  minutos_0 (minutos_0)
-     LUT3:I0->O            1   0.704   0.424  luc_cmp_eq0001_SW0 (N23)
-     LUT4:I3->O            2   0.704   0.451  luc_cmp_eq0001 (luc_cmp_eq0001)
-     LUT4:I3->O            1   0.704   0.424  luc_SW0 (N25)
-     LUT4:I3->O           11   0.704   0.968  luc (luces_OBUF)
-     LUT4:I2->O            1   0.704   0.000  DB<2>124_F (N217)
-     MUXF5:I0->O           2   0.321   0.622  DB<2>124 (N11)
-     LUT4:I0->O            1   0.704   0.424  DB<2>116_SW0 (N1811)
-     LUT4:I3->O            1   0.704   0.420  DB<2>116 (DB_2_OBUF)
-     OBUF:I->O                 3.272          DB_2_OBUF (DB<2>)
+     FDCE_1:C->Q           7   0.591   0.883  horas_3 (horas_3)
+     LUT3:I0->O            1   0.704   0.499  sig_tiempo_cmp_eq0000_SW0 (N55)
+     LUT4:I1->O            2   0.704   0.526  sig_tiempo_cmp_eq0000 (sig_tiempo_cmp_eq00001)
+     LUT4:I1->O           10   0.704   1.057  alarm28 (alarma_OBUF)
+     LUT4:I0->O            1   0.704   0.455  DB<0>62_SW0 (N205)
+     LUT3:I2->O            1   0.704   0.595  DB<0>62 (DB<0>62)
+     LUT4:I0->O            1   0.704   0.420  DB<0>112 (DB_0_OBUF)
+     OBUF:I->O                 3.272          DB_0_OBUF (DB<0>)
     ----------------------------------------
-    Total                     13.728ns (9.112ns logic, 4.616ns route)
-                                       (66.4% logic, 33.6% route)
+    Total                     12.522ns (8.087ns logic, 4.435ns route)
+                                       (64.6% logic, 35.4% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'mS3/clkout1'
-  Total number of paths / destination ports: 120 / 5
+Timing constraint: Default OFFSET OUT AFTER for Clock 'm3/clkout1'
+  Total number of paths / destination ports: 110 / 5
 -------------------------------------------------------------------------
-Offset:              12.135ns (Levels of Logic = 7)
+Offset:              12.084ns (Levels of Logic = 7)
   Source:            pr_tiempo_15 (FF)
   Destination:       DB<0> (PAD)
-  Source Clock:      mS3/clkout1 rising
+  Source Clock:      m3/clkout1 rising
 
   Data Path: pr_tiempo_15 to DB<0>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDC:C->Q              2   0.591   0.622  pr_tiempo_15 (pr_tiempo_15)
-     LUT3:I0->O            1   0.704   0.424  alarm11_SW0 (N175)
+     LUT3:I0->O            1   0.704   0.424  alarm11_SW0 (N209)
      LUT4:I3->O            1   0.704   0.424  alarm11 (alarm11)
-     LUT4:I3->O           11   0.704   1.108  alarm28 (alarma_OBUF)
-     LUT4:I0->O            1   0.704   0.455  DB<0>73_SW0 (N173)
-     LUT3:I2->O            1   0.704   0.595  DB<0>73 (DB<0>73)
-     LUT4:I0->O            1   0.704   0.420  DB<0>121 (DB_0_OBUF)
+     LUT4:I3->O           10   0.704   1.057  alarm28 (alarma_OBUF)
+     LUT4:I0->O            1   0.704   0.455  DB<0>62_SW0 (N205)
+     LUT3:I2->O            1   0.704   0.595  DB<0>62 (DB<0>62)
+     LUT4:I0->O            1   0.704   0.420  DB<0>112 (DB_0_OBUF)
      OBUF:I->O                 3.272          DB_0_OBUF (DB<0>)
     ----------------------------------------
-    Total                     12.135ns (8.087ns logic, 4.048ns route)
-                                       (66.6% logic, 33.4% route)
+    Total                     12.084ns (8.087ns logic, 3.997ns route)
+                                       (66.9% logic, 33.1% route)
 
 =========================================================================
 Timing constraint: Default path analysis
@@ -783,12 +781,12 @@ Delay:               5.783ns (Levels of Logic = 2)
 =========================================================================
 
 
-Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 6.69 secs
+Total REAL time to Xst completion: 15.00 secs
+Total CPU time to Xst completion: 14.67 secs
  
 --> 
 
-Total memory usage is 4566720 kilobytes
+Total memory usage is 4566752 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    7 (   0 filtered)
