@@ -50,18 +50,20 @@ end controlador;
 architecture casa_domotica of controlador is
 
 	type estados is (FI1A,FI1B,FI2A,FI2B,FI3A,FI3B,BOR1,BOR2,CONT1,CONT2,
-	                 MOD1,MOD2,v1,v2,a1,a2,l1,l2,o1,o2,r1,r2,sp1,sp2,
-						  ll1,ll2,e1,e2,i1,i2,d1,d2,oo1,oo2,pp1,pp2,ent1,ent2,
-						  hd1, hd2, hu1, hu2, p1, p2, md1, md2, mu1, mu2,borr1,borr2,ret1,ret2);	
+	                 MOD1,MOD2, pp1,pp2,ent1,ent2,
+						  hd1, hd2, hu1, hu2, p1, p2, md1, md2, mu1, mu2, sd1, sd2, su1, su2,
+						  f1, f2, u1, u2, n1, n2, c1, c2, i1, i2, o1, o2, n21, n22, p21, p22, sp1, sp2,
+						  msg11, msg12, msg21, msg22, msg31, msg32, msg41, msg42, msg51, msg52,
+						  borr1,borr2,ret1,ret2);	
 	signal pr_estado,sig_estado: estados;
 	
 	type tiempos is (t0, t00, t01, t10, t11, t20, t21, t30, t31, t40, t41, t50, t51, t60, t61, t70, t71, t80, t81, t90, t91);
 	signal pr_tiempo, sig_tiempo: tiempos;
 	
 	signal hora, minuto: std_logic;
-	signal horasd, horasu, minutosd, minutosu: std_logic_vector (3 downto 0);
-	signal horas, minutos : integer range 0 to 60;
-	signal rel, rel2 : std_logic;
+	signal horasd, horasu, minutosd, minutosu, segundosd, segundosu: std_logic_vector (3 downto 0);
+	signal horas, minutos, segundos : integer range 0 to 60;
+	signal rel, rel2, alarm, asper, luc : std_logic;
 	
 	component eliminador is
     Port ( clk : in STD_LOGIC;
@@ -109,27 +111,75 @@ begin
 					 end if;
 					end if; 
 				end process SEC_maquina;
-		u0: div_frec_5hz port map (clk, rel);
+		m0: div_frec_5hz port map (clk, rel);
 		resetpres <= reset;
-		u1: eliminador port map (E, reset, min, minuto);
-		u2: eliminador port map (E, reset, hor, hora);
+		m1: eliminador port map (E, reset, min, minuto);
+		m2: eliminador port map (E, reset, hor, hora);
 		horpres <= hora;
 		minpres <= minuto;
-		u3: div_frec_vhdl port map (clk, rel2);
+		mS3: div_frec_vhdl port map (clk, rel2);
 		
 		temporizador: process (rel, minuto, hora, reset, rel2, habilitado) 
 			variable mind, minu : integer range 0 to 10 := 0;
 			variable hrsd, hrsu : integer range 0 to 10 := 0;
+			variable segd, segu : integer range 0 to 10 := 0;
 		begin
 			if (reset = '1') then
 				mind := 0;
 				minu := 0;
 				hrsd := 0;
 				hrsu := 0;
+				segd := 0;
+				segu := 0;
 				horas <= 0;
 				minutos <= 0;
+				segundos <= 0;
 			elsif (rel'event and rel = '0' and (minuto = '1' or hora = '1' or rel2 = '1')) then
-				if minuto = '1' or (rel2 = '1' and habilitado = '1') then
+				if (rel2 = '1' and habilitado = '1') then
+					segu := segu + 1;
+					segundos <= segundos + 1;
+					if segu = 10 then
+						segd := segd + 1;
+						segu := 0;
+					end if;
+					if segundos >= 59 then
+						minu := minu + 1;
+						minutos <= + 1;
+						segd := 0;
+						segu := 0;
+						segundos <= 0;
+					end if;
+					if minu = 10 then
+						mind := mind + 1;
+						minu := 0;
+					end if;
+					if minutos >= 59 and segundos >= 59 then
+						 hrsu := hrsu + 1;
+						 mind := 0;
+						 minu := 0;
+						 minutos <= 0;
+						 segd := 0;
+						 segu := 0;
+						 segundos <= 0;
+						 horas <= horas + 1;
+					end if;
+					if hrsu = 10 then
+						hrsd := hrsd + 1;
+						hrsu := 0;
+					end if;
+					if horas >= 23 and minutos >= 59 and segundos >= 59 then
+						hrsd := 0;
+						hrsu := 0;
+						mind := 0;
+						minu := 0;
+						segd := 0;
+						segu := 0;
+						horas <= 0;
+						minutos <= 0;
+						segundos <= 0;
+					end if;
+				end if;
+				if minuto = '1' then
 					minu := minu + 1;
 					minutos <= minutos + 1;
 					if minu = 10 then 
@@ -175,8 +225,10 @@ begin
 			minutosd <= std_logic_vector(to_unsigned(mind, 4));
 			minutosu <= std_logic_vector(to_unsigned(minu, 4));
 			horasd <= std_logic_vector(to_unsigned(hrsd, 4));
-			horasu <= std_logic_vector(to_unsigned(hrsu, 4));	
-		
+			horasu <= std_logic_vector(to_unsigned(hrsu, 4));
+			segundosu <= std_logic_vector(to_unsigned(segu, 4));
+			segundosd <= std_logic_vector(to_unsigned(segd, 4));
+			
 		end process temporizador;
 		
 		seq_tiempo: process(rel2, reset) begin
@@ -188,103 +240,106 @@ begin
 		end process seq_tiempo;
 		
 		funcionalidades: process (horas, minutos, pr_tiempo) begin
-			alarma <= '0';
-			aspersor <= '0';
-			luces <= '0';
+			alarm <= '0';
+			asper <= '0';
+			luc <= '0';
 			if horas = 6 and minutos >= 30 then
 				case pr_tiempo is
 					when t0 => 
-						alarma <= '0';
+						alarm <= '0';
 						sig_tiempo <= t00;
 					when t00 =>
-						alarma <= '1';
+						alarm <= '1';
 						sig_tiempo <= t01;
 					when t01 =>
-						alarma <= '0';
+						alarm <= '0';
 						sig_tiempo <= t10;
 						
 					when t10 =>
-						alarma <= '1';
+						alarm <= '1';
 						sig_tiempo <= t11;
 					when t11 =>
-						alarma <= '0';
+						alarm <= '0';
 						sig_tiempo <= t20;
 						
 					when t20 =>
-						alarma <= '1';
+						alarm <= '1';
 						sig_tiempo <= t21;
 					when t21 =>
-						alarma <= '0';
+						alarm <= '0';
 						sig_tiempo <= t30;
 						
 					when t30 =>
-						alarma <= '1';
+						alarm <= '1';
 						sig_tiempo <= t31;
 					when t31 =>
-						alarma <= '0';
+						alarm <= '0';
 						sig_tiempo <= t40;
 						
 					when t40 =>
-						alarma <= '1';
+						alarm <= '1';
 						sig_tiempo <= t41;
 					when t41 =>
-						alarma <= '0';
+						alarm <= '0';
 						sig_tiempo <= t50;
 						
 					when t50 =>
-						alarma <= '1';
+						alarm <= '1';
 						sig_tiempo <= t51;
 					when t51 =>
-						alarma <= '0';
+						alarm <= '0';
 						sig_tiempo <= t60;
 						
 					when t60 =>
-						alarma <= '1';
+						alarm <= '1';
 						sig_tiempo <= t61;
 					when t61 =>
-						alarma <= '0';
+						alarm <= '0';
 						sig_tiempo <= t70;
 						
 					when t70 =>
-						alarma <= '1';
+						alarm <= '1';
 						sig_tiempo <= t71;
 					when t71 =>
-						alarma <= '0';
+						alarm <= '0';
 						sig_tiempo <= t80;
 						
 					when t80 =>
-						alarma <= '1';
+						alarm <= '1';
 						sig_tiempo <= t81;
 					when t81 =>
-						alarma <= '0';
+						alarm <= '0';
 						sig_tiempo <= t90;
 						
 					when t90 =>
-						alarma <= '1';
+						alarm <= '1';
 						sig_tiempo <= t91;
 					when t91 =>
-						alarma <= '0';
+						alarm <= '0';
 						sig_tiempo <= t91;
 				end case;
 			end if;
 			if horas >= 19 then
 				if horas < 23 then 
-					luces <= '1';
+					luc <= '1';
 				elsif horas = 23 and minutos = 0 then
-					luces <= '1';
+					luc <= '1';
 				else
-					luces <= '0';
+					luc <= '0';
 				end if;
 			end if;
 			if horas >= 4 then
 				if horas < 6 then
-					aspersor <= '1';
+					asper <= '1';
 				elsif horas = 6 and minutos = 0 then
-					aspersor <= '1';
+					asper <= '1';
 				else 
-					aspersor <= '0';
+					asper <= '0';
 				end if;
 			end if;
+			alarma <= alarm;
+			aspersor <= asper;
+			luces <= luc;
 		end process funcionalidades;
 		
 		COMB_maquina: process (horasd, horasu, minutosd, minutosu, pr_estado) --- PARTE COMBINATORIA DE LA MAQUINA DE ESTADOS
@@ -339,111 +394,6 @@ begin
 					when MOD2 =>
 					RS <='0'; RW<='0';
 					DB <="0110";       ----- FIN código $06 INCREMENTA CURSOR EN LA PANTALLA 
-					sig_estado <=v1;
-					when v1 =>         
-					RS <='1'; RW<='0';
-					DB <="0101";
-					sig_estado <= v2;
-					when v2 =>
-					RS <='1'; RW<='0';
-					DB <="0110";      
-					sig_estado <= a1; 
-					
-					when a1 =>         
-					RS <='1'; RW<='0';
-					DB <="0100";
-					sig_estado <= a2;
-					when a2 =>
-					RS <='1'; RW<='0';
-					DB <="0001";      
-					sig_estado <= l1;
-					when l1 =>         
-					RS <='1'; RW<='0';
-					DB <="0100";
-					sig_estado <= l2;
-					when l2 =>
-					RS <='1'; RW<='0';
-					DB <="1100";      
-					sig_estado <= o1;
-					when o1 =>         
-					RS <='1'; RW<='0';
-					DB <="0100";
-					sig_estado <= o2;
-					when o2 =>
-					RS <='1'; RW<='0';
-					DB <="1111";      
-					sig_estado <= r1;
-					when r1 =>         
-					RS <='1'; RW<='0';
-					DB <="0101";
-					sig_estado <= r2;
-					when r2 =>
-					RS <='1'; RW<='0';
-					DB <="0010";      
-					sig_estado <= sp1;
-					when sp1 =>         
-					RS <='1'; RW<='0';
-					DB <="0010";
-					sig_estado <= sp2;
-					when sp2 =>
-					RS <='1'; RW<='0';
-					DB <="0000";      
-					sig_estado <= ll1;
-					when ll1 =>         
-					RS <='1'; RW<='0';
-					DB <="0100";
-					sig_estado <= ll2;
-					when ll2 =>
-					RS <='1'; RW<='0';
-					DB <="1100";      
-					sig_estado <= e1;
-					when e1 =>         
-					RS <='1'; RW<='0';
-					DB <="0100";
-					sig_estado <= e2;
-					when e2 =>
-					RS <='1'; RW<='0';
-					DB <="0101";      
-					sig_estado <= i1;
-					when i1 =>         
-					RS <='1'; RW<='0';
-					DB <="0100";
-					sig_estado <= i2;
-					when i2 =>
-					RS <='1'; RW<='0';
-					DB <="1001";      
-					sig_estado <= d1;
-					when d1 =>         
-					RS <='1'; RW<='0';
-					DB <="0100";
-					sig_estado <= d2;
-					when d2 =>
-					RS <='1'; RW<='0';
-					DB <="0100";      
-					sig_estado <= oo1;
-					when oo1 =>         
-					RS <='1'; RW<='0';
-					DB <="0100";
-					sig_estado <= oo2;
-					when oo2 =>
-					RS <='1'; RW<='0';
-					DB <="1111";      
-					sig_estado <= pp1;
-					when pp1 =>         
-					RS <='1'; RW<='0';
-					DB <="0011";
-					sig_estado <= pp2;
-					when pp2 =>
-					RS <='1'; RW<='0';
-					DB <="1010";      
-					sig_estado <= ent1;
-					when ent1 =>         
-					RS <='0'; RW<='0';
-					DB <="1100";
-					sig_estado <= ent2;
-					when ent2 =>
-					RS <='0'; RW<='0';
-					DB <="0000";      
 					sig_estado <= hd1;
 					
 					when hd1 =>
@@ -489,6 +439,208 @@ begin
 					when mu2 =>
 						RS <= '1'; RW <= '0';
 						DB <= minutosu;
+						sig_estado <= pp1;
+					
+					when pp1 =>         
+					RS <='1'; RW<='0';
+					DB <="0011";
+					sig_estado <= pp2;
+					when pp2 =>
+					RS <='1'; RW<='0';
+					DB <="1010";      
+					sig_estado <= sd1;
+					
+					when sd1 =>
+						RS <= '1'; RW <= '0';
+						DB <= "0011";
+						sig_estado <= sd2;
+					when sd2 =>
+						RS <= '1'; RW <= '0';
+						DB <= segundosd;
+						sig_estado <= su1;
+					
+					when su1 =>
+						RS <= '1'; RW <= '0';
+						DB <= "0011";
+						sig_estado <= su2;
+					when su2 =>
+						RS <= '1'; RW <= '0';
+						DB <= segundosu;
+						sig_estado <= ent1;
+					
+					when ent1 =>         
+					RS <='0'; RW<='0';
+					DB <="1100";
+					sig_estado <= ent2;
+					when ent2 =>
+					RS <='0'; RW<='0';
+					DB <="0000";      
+					sig_estado <= f1;
+						
+					when f1 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"4";
+						sig_estado <= f2;
+					when f2 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"6";
+						sig_estado <= u1;
+						
+					when u1 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"5";
+						sig_estado <= u2;
+					when u2 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"5";
+						sig_estado <= n1;
+					
+					when n1 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"4";
+						sig_estado <= n2;
+					when n2 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"E";
+						sig_estado <= c1;
+						
+					when c1 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"4";
+						sig_estado <= c2;
+					when c2 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"3";
+						sig_estado <= i1;
+						
+					when i1 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"4";
+						sig_estado <= i2;
+					when i2 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"9";
+						sig_estado <= o1;
+					
+					when o1 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"4";
+						sig_estado <= o2;
+					when o2 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"F";
+						sig_estado <= n21;
+						
+					when n21 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"4";
+						sig_estado <= n22;
+					when n22 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"E";
+						sig_estado <= p21;
+					
+					when p21 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"3";
+						sig_estado <= p22;
+					when p22 =>
+						RS <= '1'; RW <= '0';
+						DB <= x"A";
+						sig_estado <= sp1;
+					
+					when sp1 =>         
+						RS <='1'; RW<='0';
+						DB <= x"2";
+						sig_estado <= sp2;
+					when sp2 =>
+						RS <='1'; RW<='0';
+						DB <= x"0";  
+						sig_estado <= msg11;
+						
+					when msg11 =>
+						RS <= '1'; RW <= '0';
+						if alarm = '1' then DB <= x"4";
+						elsif asper = '1' then DB <= x"4";
+						elsif luc = '1' then DB <= x"4";
+						else DB <= x"2";
+						end if;
+						sig_estado <= msg12;
+					when msg12 =>
+						RS <= '1'; RW <= '0';
+						if alarm = '1' then DB <= x"1";
+						elsif asper = '1' then DB <= x"1";
+						elsif luc = '1' then DB <= x"C";
+						else DB <= x"0";
+						end if;
+						sig_estado <= msg21;
+					
+					when msg21 =>
+						RS <= '1'; RW <= '0';
+						if alarm = '1' then DB <= x"4";
+						elsif asper = '1' then DB <= x"5";
+						elsif luc = '1' then DB <= x"5";
+						else DB <= x"2";
+						end if;
+						sig_estado <= msg22;
+					when msg22 =>
+						RS <= '1'; RW <= '0';
+						if alarm = '1' then DB <= x"C";
+						elsif asper = '1' then DB <= x"3";
+						elsif luc = '1' then DB <= x"5";
+						else DB <= x"0";
+						end if;
+						sig_estado <= msg31;
+					
+					when msg31 =>
+						RS <= '1'; RW <= '0';
+						if alarm = '1' then DB <= x"4";
+						elsif asper = '1' then DB <= x"5";
+						elsif luc = '1' then DB <= x"4";
+						else DB <= x"2";
+						end if;
+						sig_estado <= msg32;
+					when msg32 =>
+						RS <= '1'; RW <= '0';
+						if alarm = '1' then DB <= x"1";
+						elsif asper = '1' then DB <= x"0";
+						elsif luc = '1' then DB <= x"3";
+						else DB <= x"0";
+						end if;
+						sig_estado <= msg41;
+						
+					when msg41 =>
+						RS <= '1'; RW <= '0';
+						if alarm = '1' then DB <= x"5";
+						elsif asper = '1' then DB <= x"4";
+						elsif luc = '1' then DB <= x"4";
+						else DB <= x"2";
+						end if;
+						sig_estado <= msg42;
+					when msg42 =>
+						RS <= '1'; RW <= '0';
+						if alarm = '1' then DB <= x"2";
+						elsif asper = '1' then DB <= x"5";
+						elsif luc = '1' then DB <= x"5";
+						else DB <= x"0";
+						end if;
+						sig_estado <= msg51;
+						
+					when msg51 =>
+						RS <= '1'; RW <= '0';
+						if alarm = '1' then DB <= x"4";
+						elsif asper = '1' then DB <= x"5";
+						elsif luc = '1' then DB <= x"5";
+						else DB <= x"2";
+						end if;
+						sig_estado <= msg52;
+					when msg52 =>
+						RS <= '1'; RW <= '0';
+						if alarm = '1' then DB <= x"D";
+						elsif asper = '1' then DB <= x"2";
+						elsif luc = '1' then DB <= x"3";
+						else DB <= x"0";
+						end if;
 						sig_estado <= borr1;
 					
 					when borr1 =>
@@ -506,7 +658,7 @@ begin
 					when ret2 =>
 					RS <='0'; RW<='0';
 					DB <="0000";      
-					sig_estado <= v1; ----- FIN código $80 RETORNO
+					sig_estado <= hd1; ----- FIN código $80 RETORNO
 		end case;
 	end process COMB_maquina;
 

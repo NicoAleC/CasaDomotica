@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Mon Dec 17 19:03:14 2018
+// Written by: Map P.20131013 on Tue Dec 18 10:38:32 2018
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -13,11 +13,11 @@ COMP "DB<0>" LOCATE = SITE "R15" LEVEL 1;
 COMP "DB<1>" LOCATE = SITE "R16" LEVEL 1;
 COMP "DB<2>" LOCATE = SITE "P17" LEVEL 1;
 COMP "DB<3>" LOCATE = SITE "M15" LEVEL 1;
+COMP "luces" LOCATE = SITE "D5" LEVEL 1;
 COMP "reset" LOCATE = SITE "H13" LEVEL 1;
 COMP "horpres" LOCATE = SITE "F9" LEVEL 1;
 COMP "minpres" LOCATE = SITE "E9" LEVEL 1;
 COMP "habilitado" LOCATE = SITE "L13" LEVEL 1;
-COMP "luces" LOCATE = SITE "D5" LEVEL 1;
 COMP "SF_CE0" LOCATE = SITE "D16" LEVEL 1;
 COMP "resetpres" LOCATE = SITE "D11" LEVEL 1;
 COMP "alarma" LOCATE = SITE "A4" LEVEL 1;
